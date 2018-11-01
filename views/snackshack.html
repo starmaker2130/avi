@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snack Shack | The Digital Convenience Store</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="../media/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../media/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../media/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../media/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../media/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../media/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../media/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../media/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../media/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../media/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../media/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../media/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../media/icons/favicon-16x16.png">
+    <link rel="manifest" href="../media/icons/manifest.json">
+    <link rel='stylesheet' href='../css/pARk.css' type='text/css' />
+    
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../media/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+    <script src='../js/socket.io.js'></script>
+    <script src='../js/jquery-3.2.1.min.js'></script>
+    <script src='../js/cdb.js'></script>
+    <script src='../js/imf.js'></script>
+</head>
+<body>
+    <div id='content-overlay-container'>
+        <figure id="video-container">
+           <video id="video" controls preload="metadata" poster="../media/img/Kids_film.jpg">
+              <source id='video-source' src="../media/content/films/Kids.mp4" type="video/mp4">
+              <!-- Flash fallback -->
+              <object type="application/x-shockwave-flash" data="flash-player.swf?videoUrl=media/content/films/Kids.mp4" width="1024" height="576">
+                 <param name="movie" value="flash-player.swf?videoUrl=media/content/films/Kids.mp4" />
+                 <param name="allowfullscreen" value="true" />
+                 <param name="wmode" value="transparent" />
+                 <param name="flashvars" value="controlbar=over&amp;image=img/poster.jpg&amp;file=flash-player.swf?videoUrl=media/content/films/Kids.mp4" />
+                 <img alt="Tears of Steel poster image" src="../media/img/Kids_film.jpg" width="1024" height="428" title="No video playback possible, please download the video from the link below" />
+              </object>
+              <!-- Offer download -->
+              <a href="../media/content/films/Kids.mp4">Download MP4</a>
+           </video>
+           <figcaption id='caption-container'>&copy; House of Venus | <a id='caption-link' href="http://houseofven.us">Benefit Corporation</a></figcaption>
+            <input type='button' id='close-content-overlay-button' value='close' />
+        </figure>
+    </div>
+    <div id='main-profile-container'>
+        <div id='logo-container'>
+            <div id='logo'></div>
+            <div id='content-header'>snack shack.</div>
+        </div>
+        <div id='navigation-container'>
+            <div id='order-option' class='navigation-option'>order</div>
+            <div id='catalog-option' class='navigation-option'>catalog</div>
+            <div id='contact-option' class='navigation-option'>contact</div>
+        </div>
+        <!--<div id='fa'></div>-->
+        <div id='main-content-container'>
+            <div id='main-content' class='page-content-container'>
+                <div class='main-content-header first-line-item'>snack shack.</div>
+                <p id='first-line' class='first-line-item'>the digital convenience store</p>
+                <br/>
+                <div id='second-line' style='opacity: 0;'>
+                    <div id='get-cash-option' class='get-item-option'>
+                        <div id='cash-icon' class='item-option-icon'></div>
+                        cash
+                    </div>
+                    <div id='get-internet-option' class='get-item-option'>
+                        <div id='internet-icon' class='item-option-icon'></div>
+                        internet
+                    </div>
+                    <div id='get-snacks-option' class='get-item-option'>
+                        <div id='snacks-icon' class='item-option-icon'></div>
+                        snacks
+                    </div>
+                    <div id='get-rides-option' class='get-item-option'>
+                        <div id='rides-icon' class='item-option-icon'></div>
+                        rides 
+                    </div>
+                </div>
+                <div id='item-option-description-container'>
+                    <span id='cash-item-description' class='item-option-description'>withdraw cash from your Venmo, Google Pay, Apple Pay, or Mavricom digital wallets</span>
+                    <span id='internet-item-description' class='item-option-description'>get access to online content via your local pARk</span>
+                    <span id='snacks-item-description' class='item-option-description'>order some eats, treats, and drinks for pickup or delivery whenever you need</span>
+                    <span id='rides-item-description' class='item-option-description'>get where you need to go quickly and saftely</span>
+                </div>
+                <div id='order-page-shortcut'>order</div>
+            </div>
+            <div id='order-content' class='page-content-container'>
+                <p id='snacks-option' class='order-option-header main-content-header'>get snacks</p>
+                <p>choose from the wide assortment of meals, subs, chips, and drinks cp has to offer</p>
+                <br />
+                <p id='connect-option' class='connect-option-header main-content-header'>connect</p>
+                <p>stream online content from the pARk; up to 128 GB of internet data from your favorite traditional and XR* websites</p>
+                <br/>
+                <p id='rides-option' class='rides-option-header main-content-header currently-unavailable-coming-soon'>find a ride</p>
+                <p class='currently-unavailable-coming-soon'>move through cp with safety, comfort, and speed -- available dec. 2018</p>
+                <br/>
+                <p id='withdraw-option' class='withdraw-option-header main-content-header currently-unavailable-coming-soon'>withdraw cash</p>
+                <p class='currently-unavailable-coming-soon'>from your google pay, venmo, or mavricom account -- available dec. 2018</p>
+                <br />
+                
+                <span id='footy'>* XR = immersive reality = virtual reality + augmented reality + mixed reality</span>
+                
+                <div id='snacks-overlay' class='order-overlay-container'>
+                    <h3 class='order-overlay-header'>order food</h3>
+                    <label class="container">Water (12 oz)
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Chips
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Maryland Breeze (Bangalore Fusion)
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                    <label class="container">Maryland Breeze (Goma Leaf)
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Arizona (23 oz)
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                    <label class="container">Cinnamon Muffin
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                    <label class="container">Glazed KK Donut (single)
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                    <label class="container">Glazed KK Donut (dozen)
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                    <label class="container">Candy
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <input type='button' id='close-snacks-overlay-button' class='close-overlay-button' value='x'/>
+                </div>
+                
+                <div id='rides-overlay' class='order-overlay-container'>
+                    <h3 class='order-overlay-header'>order rides</h3>
+                    <div id='ride-order-details'>
+                        <input type='text' id='ride-order-start' placeholder="pickup location" />
+                        <input type='text' id='ride-order-destination' placeholder="destination" />
+                        <p id='select-rider-count'>Number of Riders:
+                            <select>
+                              <option value="v">1</option>
+                              <option value="s">2</option>
+                              <option value="m">3</option>
+                              <option value="a">4</option>
+                            </select>
+                        </p>
+                        <input type='button' id='search-for-ride' value='find a ride' />
+                    </div>
+                    <input type='button' id='close-rides-overlay-button' class='close-overlay-button' value='x'/>
+                </div>
+            </div>
+            <div id='catalog-content' class='page-content-container'>
+                <div class='main-content-header' id='catalog-header'>catalog.</div>
+                <div id='media-panel-container'>
+                </div>
+            </div>
+            <div id='contact-content' class='page-content-container'>
+                <p id='roster-item-header' class='contact-item-header'>roster</p>
+                <div id='roster-container'>
+                    <div id='ceo-profile' class='profile-container'>
+                        <div id='ceo-profile-image' class='profile-image'></div>
+                        <div id='ceo-profile-name' class='profile-name'>Patrice-Morgan Ongoly</div>
+                        <div id='ceo-description' class='profile-description'>Executive Director (Tech, Asset Mgmt.)</div>
+                    </div>
+                    <div id='sponsor-profile' class='profile-container'>
+                        <div id='sponsor-profile-image' class='profile-image'></div>
+                        <div id='sponsor-profile-name' class='profile-name'>House of Venus, Benefit Corporation</div>
+                        <div id='sponsor-description' class='profile-description'>Sponsor (pARk, CaaS)</div>
+                    </div>
+                </div>
+                <p id='question-item-header' class='contact-item-header'>questions</p>
+                <!--<p>contact us at:</p>-->
+                <p>contact us at <a id='contact-link' href='mailto:mavricomfinancial@gmail.com'>mavricomfinancial@gmail.com</a></p>
+            </div>
+        </div>
+        <div id='footer'>HOMMES Initiative | 2018</div>
+    </div>
+</body>
+</html>

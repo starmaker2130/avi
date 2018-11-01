@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House of Venus Remote</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="../media/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../media/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../media/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../media/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../media/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../media/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../media/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../media/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../media/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../media/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../media/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../media/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../media/icons/favicon-16x16.png">
+    <link rel="manifest" href="../media/icons/manifest.json">
+    <link rel='stylesheet' href='../css/house_remote.css' type='text/css' />
+    
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../media/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+    <script src='../js/socket.io.js'></script>
+    <script src='../js/jquery-3.2.1.min.js'></script>
+    <script>
+        var sessionManager = {
+            connection: null,
+            deviceType: null,
+            view: null,
+            mode: null
+        };
+        
+        document.addEventListener('DOMContentLoaded', function(){
+            sessionManager.connection = io.connect(location.host);    
+            
+            sessionManager.connection.on('loadDeviceType', function(data){
+                var type = data.type;
+                sessionManager.deviceType = type;
+                
+                if(type=='desktop'){
+                    console.log('TODO: verify whether user is on snack shack main or using remote by waiting for remote tap trigger; if a remote tap is initiated then the view is in developer mode and the program shold record it as a desktop view of the remote for developers purposes');
+                }
+                else if(type=='mobile'){
+                    
+                    sessionManager.view = 'remote';
+                    sessionManager.mode = 'beta\dev\rel';
+                    
+                }
+            });
+            
+            $('#launch-overlay-container').click(function(){
+                sessionManager.connection.emit('checkDeviceType', {status: 1});
+                $(this).animate({
+                    height: 0,
+                    opacity: 0
+                }, 1000, function(){
+                    $(this).hide();
+                });
+            });
+            
+            document.getElementById('create-experience-option').addEventListener('click', function(){
+                console.log('launch show and tell');
+                sessionManager.connection.emit('launchSAT', {status: true});
+            });
+            
+            document.getElementById('load-cARd-option').addEventListener('click', function(){
+                console.log('load cARd option');
+                sessionManager.connection.emit('loadcARd', {status: true, id: 2130});
+            });
+            
+            document.getElementById('toggle-ar-option').addEventListener('click', function(){
+                console.log('switch to the snack shack console cARd menu');
+                sessionManager.connection.emit('toggleARMode', {status: true, currentMode: 'flat'});
+            });
+            
+            document.getElementById('fly-eV-option').addEventListener('click', function(){
+                console.log('open avionics controls and connect to eV');
+                sessionManager.connection.emit('openAvionicsConsole', {status: true});
+            });
+            
+            $('.direction-pad-button').click(function(){
+                var dpad_id = $(this).attr('id');
+                var direction = dpad_id.substring(0, dpad_id.indexOf('-'));
+                console.log(dpad_id);
+                console.log(`go ${dpad_id}`);
+                sessionManager.connection.emit('dpadEvent', {direction: direction});
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id='launch-overlay-container'>
+        <div id='tap-to-enter'>tap to load remote</div>
+    </div>
+    <div id='remote-header-container'>
+        <div id='remote-header-title'>House of Venus Remote v. 0.1.1.</div>
+        <input id='power-button' type='button' value='H' />
+    </div>
+    <div id='main-content-container'>
+        <div id='navigation-container'>
+            <input id='create-experience-option' class='navigation-option' type='button' value='create' />
+            <input id='load-cARd-option' class='navigation-option' type='button' value='load' />
+            <input id='toggle-ar-option' class='navigation-option' type='button' value='toggle' />
+            <input id='fly-eV-option' class='navigation-option' type='button' value='fly' />
+        </div>
+        
+        <div id='direction-pad-container'>
+            <input id='up-button' class='direction-pad-button' type='button' value='^' />
+            <input id='left-button' class='direction-pad-button' type='button' value='&lt;'/>
+            <input id='select-button' class='direction-pad-button' type='button' value='o' />
+            <input id='right-button' class='direction-pad-button' type='button' value='&gt;'/>
+            <input id='down-button' class='direction-pad-button' type='button' value='V'/>
+        </div>
+        <div id='footer'>HOMMES Initiative | 2018</div>
+    </div>
+</body>
+</html>

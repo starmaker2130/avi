@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snack Shack | The Digital Convenience Store</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="./media/icons.ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./media/icons.ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./media/icons.ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./media/icons.ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./media/icons.ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./media/icons.ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./media/icons.ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./media/icons.ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./media/icons.ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./media/icons.ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./media/icons.ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./media/icons.ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./media/icons.ico/favicon-16x16.png">
+    <link rel="manifest" href="./media/icons.ico/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./media/icons.ico/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        
+        body, html{
+            width: 100%;
+            height: 100%;
+            background-color: yellow;
+        }
+        
+        #navigation-container{
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            width: 300px;
+            color: black;
+            font-size: 1.2em;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        
+        .navigation-option{
+            display: inline-block;
+            height: 100%;
+            width: 30%;
+            text-align: center;
+            text-transform: lowercase;
+            font-weight: 400;
+            cursor: pointer;
+        }
+        
+        .navigation-option:hover{
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+        
+        #main-content-container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 460px;
+            height: 350px;
+            margin: -125px 0 0 -230px;
+            color: black;
+        }
+        
+        #acid{
+            width: auto;
+        }
+        
+        #content-header{
+            font-weight: 900;
+            font-size: 120%;
+            width: 120px;
+            position: absolute;
+            bottom: 0;
+        }
+        
+        .main-content-header{
+            font-weight: 900;
+            font-size: 120%;
+        }
+        
+        #logo-container{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 6%;
+            left: 8%;
+            cursor: pointer;
+        }
+        
+        #logo{
+            background-image: url('./media/img/shack-icon.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 10;
+        }
+        
+        #logo{
+            background-image: url('./media/img/shack-icon.png');
+            background-size: 80% 80%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            position: absolute;
+            top: 8%;
+            left: 8%;
+            cursor: pointer;
+        }
+        
+        #main-content{
+            font-size: 1.1em;
+        }
+        
+        .page-content-container{
+            opacity: 0;
+            display: none;
+        }
+        
+        #snacks-option, #rides-option{
+            cursor: pointer;
+        }
+        
+        #snacks-option:hover{
+            color: blue;
+        }
+        
+        #rides-option:hover{
+            color: red;
+        }
+        
+        #footer{
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            width: 400px;
+            text-align: center;
+            margin-left: -200px;
+            font-size: 0.9em;
+        }
+        
+        .get-item-option, #order-option{
+            display: inline-block;
+            width: 110px;
+            height: 120px;
+            text-align: center;
+            font-weight: 400;
+            text-transform: lowercase;
+        }
+        
+        .get-item-option:hover, #order-option:hover{
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        
+        .item-option-icon{
+            width: 110px;
+            height: 100px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        
+        #cash-icon{
+            background-image: url('./media/img/cash-icon.png');
+            background-size: 80% 100%;
+        }
+        
+        #internet-icon{
+            background-size: 70% 80%;
+            background-image: url('./media/texture/globe-texture.png');
+        }
+        
+        #snacks-icon, #snacks-icon-order{
+            background-size: 80% 70%;
+            background-image: url('./media/img/snacks-icon.png');
+        }
+        
+        #rides-icon, #rides-icon-order{
+            background-size: 70% 70%;
+            background-image: url('./media/img/rides-icon.png');
+        }
+        
+        .telecomm-item-header, .financials-item-header, .contact-item-header{
+            font-size: 150%;
+            text-transform: lowercase;
+        }
+        
+        #ceo-profile{
+            
+        }
+        
+        #sponsor-profile{
+            margin-left: 100px;
+        }
+        
+        .profile-image{
+            margin: 10px auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-image: url('./media/icons.ico/profile-icon.png');
+            background-size: 90% 90%;
+            background-position: center center;
+            border: 2px black solid;
+            background-repeat: no-repeat;
+        }
+        
+        .profile-container{
+            vertical-align: top;
+            display: inline-block;
+            width: 175px;
+            height: 230px;
+        }
+        
+        .profile-description{
+            font-style: italic;
+            text-align: center;
+        }
+        
+        #roster-contaienr{
+            margin: 5% auto;
+            width: 350px;
+            height: 350px;
+        }
+        
+        .contact-item-header{
+            margin: 0 auto 2% auto;
+        }
+        
+        #question-item-header{
+            margin-top: 10%;
+        }
+        
+        .profile-name{
+            text-align: center;
+        }
+        
+        .first-line-item{
+            text-align: center;
+        }
+        
+        #media-panel-container{
+            width: 600px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+        
+        .media-content-preview-panel{
+            width: 150px;
+            height: 100px;
+            margin: 10px 0 10px 35px;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            border: 0;
+            -webkit-transition: border 0.5s; /* Safari */
+            transition: border 0.5s;
+        }
+        
+        #media-content-preview-0{
+            background-image: url('./media/img/bkk.jpeg');
+            background-size: 100% auto;
+            background-position: center 20%;
+        }
+        
+        #media-content-preview-1{
+            background-image: url('./media/img/lumumba.jpeg');
+            background-size: 80% auto;
+            background-position: center 20%;
+            background-repeat: no-repeat;
+        }
+        
+        .media-content-preview-panel:hover{
+            background-color: rgba(0, 0, 0, 1.0);
+            border: 10px white solid;
+        }
+        
+        .media-content-title{
+            position: absolute;
+            bottom: 25px;
+            color: white;
+        }
+        
+        .media-rating{
+            position: absolute;
+            bottom: 5px;
+            color: red;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 25px;
+        }
+        
+        ::-webkit-scrollbar-button {
+            background-color: white;
+        }
+        
+        ::-webkit-scrollbar-track-piece {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background-color: white;
+        }
+        
+        #item-option-description-container{
+            margin-top: 10%;
+            text-align: center;
+        }
+        
+        .item-option-description{
+            display: none;
+            opacity: 0;
+        }
+        
+        #order-page-shortcut{
+            display: none;
+            opacity: 0;
+            margin: 5% auto 0 auto;
+            width: 100px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            font-size: 110%;
+            border-radius: 5px;
+            border: 1px black solid;
+            background-color: yellow;
+            color: black;
+            cursor: pointer;
+        }
+        
+        #order-page-shortcut:hover{
+            color: white;
+            font-weight: 900;
+            background-color: black;
+        }
+        
+        #ceo-profile-image{
+            background-image: url('./media/img/profile.png');
+            background-size: 130% 110%;
+        }
+        
+        #sponsor-profile-image{
+            background-image: url('./media/img/hov-md.png');
+            background-size: 80% 80%;
+            background-color: black;
+        }
+        
+        .order-overlay-container{
+            padding: 5px;
+            display: none;
+            opacity: 0;
+            z-index: 100;
+            position: absolute;
+            width: 400px;
+            height: 450px;
+            border-radius: 15px;
+            border: 1px black solid;
+            box-shadow: 5px 5px 5px white;
+            top: 50%;
+            left: 50%;
+            margin: -250px 0 0 -200px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: black;
+        }
+        
+        .close-overlay-button{
+            display: none;
+            opacity: 0;
+            position: absolute;
+            left: 50%;
+            bottom: 5%;
+            width: 50px;
+            height: 50px;
+            margin-left: -25px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.5em;
+            color: black;
+            font-weight: 600;
+            background-color: rgba(255, 255, 255, 0.5);
+            z-index: 200;
+            border: 1px black solid;
+            cursor: pointer;
+        }
+        
+        input[type=button]:focus{
+            outline: none;
+            cursor: pointer;
+        }
+        
+        .order-overlay-header{
+            text-align: center;
+        }
+        
+        #contact-link{
+            color: orangered;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        #contact-link:hover{
+            color: aqua;
+            font-weight: 900;
+        }
+    </style>
+    <script src='./js/jquery-3.2.1.min.js'></script>
+    <script>
+        var sessionManager = {
+            page: 'home',
+            description: null,
+            option: null
+        }
+        
+        document.addEventListener('DOMContentLoaded', function(){
+            var contacts = document.getElementsByClassName('contact-item');
+            for(var j = 0; j<contacts.length; j++){
+                embedContacts(j, contacts);    
+            }
+            
+            setTimeout(function(){
+                $('#main-content').show().animate({
+                    opacity: 1.0
+                }, 1000, function(){
+                    
+                    setTimeout(function(){
+                        $('.first-line-item').animate({
+                            opacity: 0
+                        }, 1000, function(){
+                            $(this).hide();
+                            var id = $(this).attr('id');
+                            if(id=='first-line'){
+                                $('#second-line').animate({
+                                    opacity: 1.0
+                                }, 1000);
+                            }
+                        });
+                    }, 3000);
+                });
+            }, 1500);
+            
+            document.getElementById('logo').addEventListener('click', function(){
+                $('.page-content-container').animate({
+                    opacity: 0
+                }, 1000, function(){
+                    $(this).hide();
+                    
+                    $('#main-content').show().animate({
+                        opacity: 1.0
+                    }, 1000);
+                });
+
+                sessionManager.page = 'home';
+            });
+            
+            document.getElementById('order-option').addEventListener('click', function(){
+                openOrderPage();
+            });
+            
+            document.getElementById('order-page-shortcut').addEventListener('click', function(){
+                openOrderPage();
+            });
+            
+            function openOrderPage(){
+                $('.page-content-container').animate({
+                    opacity: 0
+                }, 1000, function(){
+                    $(this).hide();
+                });
+                
+                setTimeout(function(){
+                    $('#order-content').show().animate({
+                        opacity: 1.0
+                    }, 1000);
+                    console.log('show order page');
+                }, 1100);
+                
+                sessionManager.page = 'order';
+            }
+            
+            document.getElementById('catalog-option').addEventListener('click', function(){
+                $('.page-content-container').animate({
+                    opacity: 0
+                }, 1000, function(){
+                    $(this).hide();
+                });
+                
+                setTimeout(function(){    
+                    $('#catalog-content').show().animate({
+                        opacity: 1.0
+                    }, 1000);
+                }, 1100);
+                
+                sessionManager.page = 'catalog';
+            });
+            
+            document.getElementById('contact-option').addEventListener('click', function(){
+                $('.page-content-container').animate({
+                    opacity: 0
+                }, 1000, function(){
+                    $(this).hide();
+                });
+                
+                setTimeout(function(){
+                    $('#contact-content').show().animate({
+                        opacity: 1.0
+                    }, 1000);
+                }, 1100);
+                
+                sessionManager.page = 'contact';
+            });
+            
+            document.getElementById('snacks-option').addEventListener('click', function(){
+                if(sessionManager.page=='order'){
+                    console.log('on order');
+                    if(sessionManager.option==null){
+                        $('#snacks-overlay, #close-snacks-overlay-button').show().animate({
+                            opacity: 1.0
+                        }, 1000);
+                        sessionManager.option = 'snacks';
+                    }
+                    else{
+                        console.log(`currently unavailable; option ${sessionManager.option} is in view`);
+                    }
+                }
+                else{
+                    console.log('not available');
+                }
+            });
+            
+            document.getElementById('rides-option').addEventListener('click', function(){
+                if(sessionManager.page=='order'){
+                    console.log('on order');
+                    if(sessionManager.option==null){
+                        $('#rides-overlay, #close-rides-overlay-button').show().animate({
+                            opacity: 1.0
+                        }, 1000);
+                        sessionManager.option = 'rides';
+                    }
+                    else{
+                        console.log(`currently unavailable; option ${sessionManager.option} is in view`);
+                    }
+                }
+                else{
+                    console.log('not available');
+                }
+            });
+            
+            document.getElementById('cash-icon').addEventListener('click', function(){
+                $('.item-option-description').animate({
+                    opacity: 0
+                }, 500, function(){
+                    $(this).hide();
+                });
+                
+                setTimeout(function(){
+                    $('#order-page-shortcut').show().animate({
+                        opacity: 1.0
+                    }, 500);
+                    
+                    $('#cash-item-description').show().animate({
+                        opacity: 1.0
+                    }, 500, function(){
+                        sessionManager.description='cash';
+                    });
+                }, 550);
+            });
+            
+            document.getElementById('internet-icon').addEventListener('click', function(){
+                $('.item-option-description').animate({
+                    opacity: 0
+                }, 500, function(){
+                    $(this).hide();
+                });
+                
+                setTimeout(function(){
+                    $('#order-page-shortcut').show().animate({
+                        opacity: 1.0
+                    }, 500);
+                    
+                    $('#internet-item-description').show().animate({
+                        opacity: 1.0
+                    }, 500, function(){
+                        sessionManager.description='internet';
+                    });
+                }, 550);
+            });
+            
+            document.getElementById('snacks-icon').addEventListener('click', function(){
+                $('.item-option-description').animate({
+                    opacity: 0
+                }, 500, function(){
+                    $(this).hide();
+                });
+                
+                setTimeout(function(){
+                    $('#order-page-shortcut').show().animate({
+                        opacity: 1.0
+                    }, 500);
+                    
+                    $('#snacks-item-description').show().animate({
+                        opacity: 1.0
+                    }, 500, function(){
+                        sessionManager.description='snacks';
+                    });
+                }, 550);
+            });
+            
+            document.getElementById('rides-icon').addEventListener('click', function(){
+                $('.item-option-description').animate({
+                    opacity: 0
+                }, 500, function(){
+                    $(this).hide();
+                });
+                
+                setTimeout(function(){
+                    $('#order-page-shortcut').show().animate({
+                        opacity: 1.0
+                    }, 500);
+                    
+                    $('#rides-item-description').show().animate({
+                        opacity: 1.0
+                    }, 1000, function(){
+                        sessionManager.description='rides';
+                    });
+                }, 550);
+            });
+            
+            $('.close-overlay-button').click(function(){
+                if(sessionManager.option==null){
+                    console.log('no action available');
+                }
+                else{
+                    $('.order-overlay-container').animate({
+                        opacity: 0
+                    }, 500, function(){
+                        $(this).hide();
+                    });
+
+                    $(this).animate({
+                        opacity: 0
+                    }, 500, function(){
+                        $(this).hide();
+                    });
+                    
+                    sessionManager.option=null;
+                    console.log('hiding order option overlay.');
+                }
+            });
+            /*contacts.forEach(function(currVal, currIndex, listObj){
+                listObj.addEventListener('click', function(){
+                    
+                })
+            });*/
+        })
+    </script>
+</head>
+<body>
+    <div id='main-profile-container'>
+        <div id='logo-container'>
+            <div id='logo'></div>
+            <div id='content-header'>snack shack.</div>
+        </div>
+        <div id='navigation-container'>
+            <div id='order-option' class='navigation-option'>order</div>
+            <div id='catalog-option' class='navigation-option'>catalog</div>
+            <div id='contact-option' class='navigation-option'>contact</div>
+        </div>
+        <!--<div id='fa'></div>-->
+        <div id='main-content-container'>
+            <div id='main-content' class='page-content-container'>
+                <div class='main-content-header first-line-item'>snack shack.</div>
+                <p id='first-line' class='first-line-item'>the digital convenience store</p>
+                <br/>
+                <div id='second-line' style='opacity: 0;'>
+                    <div id='get-cash-option' class='get-item-option'>
+                        <div id='cash-icon' class='item-option-icon'></div>
+                        cash
+                    </div>
+                    <div id='get-internet-option' class='get-item-option'>
+                        <div id='internet-icon' class='item-option-icon'></div>
+                        internet
+                    </div>
+                    <div id='get-snacks-option' class='get-item-option'>
+                        <div id='snacks-icon' class='item-option-icon'></div>
+                        snacks
+                    </div>
+                    <div id='get-rides-option' class='get-item-option'>
+                        <div id='rides-icon' class='item-option-icon'></div>
+                        rides 
+                    </div>
+                </div>
+                <div id='item-option-description-container'>
+                    <span id='cash-item-description' class='item-option-description'>withdraw cash from your Venmo, Google Pay, Apple Pay, or Mavricom digital wallets</span>
+                    <span id='internet-item-description' class='item-option-description'>get access to online content via your local pARk</span>
+                    <span id='snacks-item-description' class='item-option-description'>order some eats, treats, and drinks for pickup or delivery whenever you need</span>
+                    <span id='rides-item-description' class='item-option-description'>get where you need to go quickly and saftely</span>
+                </div>
+                <div id='order-page-shortcut'>order</div>
+            </div>
+            <div id='order-content' class='page-content-container'>
+                <p id='snacks-option' class='order-option-header main-content-header'>get snacks</p>
+                <p>choose from the wide assortment of meals, subs, chips, and drinks cp has to offer</p>
+                <br />
+                <p id='rides-option' class='rides-option-header main-content-header'>find a ride</p>
+                <p>move through cp with safety, comfort, and speed</p>
+                <br/>
+                
+                <div id='snacks-overlay' class='order-overlay-container'>
+                    <h3 class='order-overlay-header'>order food</h3>
+                    
+                    <input type='button' id='close-snacks-overlay-button' class='close-overlay-button' value='x'/>
+                </div>
+                
+                <div id='rides-overlay' class='order-overlay-container'>
+                    <h3 class='order-overlay-header'>order rides</h3>
+                    
+                    <input type='button' id='close-rides-overlay-button' class='close-overlay-button' value='x'/>
+                </div>
+            </div>
+            <div id='catalog-content' class='page-content-container'>
+                <div class='main-content-header'>catalog.</div>
+                <div id='media-panel-container'>
+                    <div id='media-content-preview-0' class='media-content-preview-panel'>
+                        <div id='media-content-title-0' class='media-content-title'>Blackkklansman</div>
+                        <div id='media-rating-0' class='media-rating'>* * * *</div>
+                    </div>
+                    <div id='media-content-preview-1' class='media-content-preview-panel'>
+                        <div id='media-content-title-1' class='media-content-title'>Lumumba</div>
+                        <div id='media-rating-1' class='media-rating'>* * *</div>
+                    </div>
+                    <div id='media-content-preview-2' class='media-content-preview-panel'>
+                        <div id='media-content-title-2' class='media-content-title'>titre 2</div>
+                        <div id='media-rating-2' class='media-rating'>* * * * *</div>
+                    </div>
+                    <div id='media-content-preview-3' class='media-content-preview-panel'>
+                        <div id='media-content-title-3' class='media-content-title'>titre 3</div>
+                        <div id='media-rating-3' class='media-rating'>* * *</div>
+                    </div>
+                    <div id='media-content-preview-4' class='media-content-preview-panel'>
+                        <div id='media-content-title-4' class='media-content-title'>titre 4</div>
+                        <div id='media-rating-4' class='media-rating'>* *</div>
+                    </div>
+                    
+                    <div id='media-content-preview-5' class='media-content-preview-panel'>
+                        <div id='media-content-title-5' class='media-content-title'>titre 5</div>
+                        <div id='media-rating-5' class='media-rating'>* * * * *</div>
+                    </div>
+                    <div id='media-content-preview-6' class='media-content-preview-panel'>
+                        <div id='media-content-title-6' class='media-content-title'>titre 6</div>
+                        <div id='media-rating-6' class='media-rating'>*</div>
+                    </div>
+                    <div id='media-content-preview-7' class='media-content-preview-panel'>
+                        <div id='media-content-title-7' class='media-content-title'>titre 7</div>
+                        <div id='media-rating-7' class='media-rating'>* * * * *</div>
+                    </div>
+                    <div id='media-content-preview-8' class='media-content-preview-panel'>
+                        <div id='media-content-title-8' class='media-content-title'>titre 8</div>
+                        <div id='media-rating-8' class='media-rating'>* * *</div>
+                    </div>
+                    <div id='media-content-preview-9' class='media-content-preview-panel'>
+                        <div id='media-content-title-9' class='media-content-title'>titre 9</div>
+                        <div id='media-rating-9' class='media-rating'>* *</div>
+                    </div>
+                    
+                    <div id='media-content-preview-10' class='media-content-preview-panel'>
+                        <div id='media-content-title-10' class='media-content-title'>titre 10</div>
+                        <div id='media-rating-10' class='media-rating'>* * * * *</div>
+                    </div>
+                    <div id='media-content-preview-11' class='media-content-preview-panel'>
+                        <div id='media-content-title-11' class='media-content-title'>titre 11</div>
+                        <div id='media-rating-11' class='media-rating'>*</div>
+                    </div>
+                    <div id='media-content-preview-12' class='media-content-preview-panel'>
+                        <div id='media-content-title-12' class='media-content-title'>titre 12</div>
+                        <div id='media-rating-12' class='media-rating'>* * * * *</div>
+                    </div>
+                    <div id='media-content-preview-13' class='media-content-preview-panel'>
+                        <div id='media-content-title-13' class='media-content-title'>titre 13</div>
+                        <div id='media-rating-13' class='media-rating'>* * *</div>
+                    </div>
+                    <div id='media-content-preview-14' class='media-content-preview-panel'>
+                        <div id='media-content-title-14' class='media-content-title'>titre 14</div>
+                        <div id='media-rating-14' class='media-rating'>* *</div>
+                    </div>
+                    
+                    <div id='media-content-preview-15' class='media-content-preview-panel'>
+                        <div id='media-content-title-15' class='media-content-title'>titre 15</div>
+                        <div id='media-rating-15' class='media-rating'>* * * * *</div>
+                    </div>
+                    <div id='media-content-preview-16' class='media-content-preview-panel'>
+                        <div id='media-content-title-16' class='media-content-title'>titre 16</div>
+                        <div id='media-rating-16' class='media-rating'>*</div>
+                    </div>
+                    <div id='media-content-preview-17' class='media-content-preview-panel'>
+                        <div id='media-content-title-17' class='media-content-title'>titre 17</div>
+                        <div id='media-rating-17' class='media-rating'>* * * * *</div>
+                    </div>
+                    <div id='media-content-preview-18' class='media-content-preview-panel'>
+                        <div id='media-content-title-18' class='media-content-title'>titre 18</div>
+                        <div id='media-rating-18' class='media-rating'>* * *</div>
+                    </div>
+                    <div id='media-content-preview-19' class='media-content-preview-panel'>
+                        <div id='media-content-title-19' class='media-content-title'>titre 19</div>
+                        <div id='media-rating-19' class='media-rating'>* *</div>
+                    </div>
+                </div>
+            </div>
+            <div id='contact-content' class='page-content-container'>
+                <p id='roster-item-header' class='contact-item-header'>roster</p>
+                <div id='roster-container'>
+                    <div id='ceo-profile' class='profile-container'>
+                        <div id='ceo-profile-image' class='profile-image'></div>
+                        <div id='ceo-profile-name' class='profile-name'>Patrice-Morgan Ongoly</div>
+                        <div id='ceo-description' class='profile-description'>Executive Director (Tech, Asset Mgmt.)</div>
+                    </div>
+                    <div id='sponsor-profile' class='profile-container'>
+                        <div id='sponsor-profile-image' class='profile-image'></div>
+                        <div id='sponsor-profile-name' class='profile-name'>House of Venus, Benefit Corporation</div>
+                        <div id='sponsor-description' class='profile-description'>Sponsor (pARk, CaaS)</div>
+                    </div>
+                </div>
+                <p id='question-item-header' class='contact-item-header'>questions</p>
+                <!--<p>contact us at:</p>-->
+                <p>contact us at <a id='contact-link' href='mailto:mavricomfinancial@gmail.com'>mavricomfinancial@gmail.com</a></p>
+            </div>
+        </div>
+        <div id='footer'>HOMMES Initiative | 2018</div>
+    </div>
+</body>
+</html>

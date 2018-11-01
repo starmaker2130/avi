@@ -1,0 +1,281 @@
+/*  
+*   author: patrice-morgan ongoly
+*   version: 0.11.6
+*   description: styling and logic for the launch page of a mixed/augmented/virtual reality experience
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input[type='button']{
+    outline: none;
+}
+
+body, html{
+    width: 100%;
+    height: 100%;
+}
+
+.entry-layer, .control-layer, .viewer-layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.entry-layer{
+    z-index: 100;
+    background-color: black;
+    color: white;
+}
+
+.control-layer{
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.viewer-layer{
+    z-index: 0;
+}
+
+#instructions{
+    font-family: monospace;
+    font-size: 1.5em;
+    text-align: center;
+    width: 105px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -125px 0 0 -53px;
+}
+
+#logo{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background-image: url('../../media/img/hov.png');
+    background-size: 100% 100%;
+}
+
+#video{
+    position: absolute;
+    display: block;
+    width: 900px;
+    height: 675px;
+    top: 50%;
+    left: 50%;
+    margin: -338px auto 0 -450px;
+}
+
+#videoSource{
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    border: 3px white solid;
+    z-index: 99;
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+    
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+#videoSource:focus{
+    outline: none;
+}
+
+.option-button{
+    display: none;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 2px white solid;
+    color: white;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.5em;
+    line-height: 50px;
+    z-index: 300;
+    position: absolute;
+    bottom: 2%;
+}
+
+.dpad-button{
+    display: none;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 2px white solid;
+    color: white;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.5em;
+    line-height: 50px;
+    z-index: 300;
+    position: absolute;
+    bottom: 10%;
+}
+
+.select-button{
+    display: none;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 2px white solid;
+    color: white;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.5em;
+    line-height: 50px;
+    z-index: 300;
+    position: absolute;
+    bottom: 10%;
+}
+
+#select-option-button, #select-media-item-button, #up-dpad-button{
+    left: 100px;
+}
+
+#prev-option-button, #down-dpad-button{
+    left: 175px;
+}
+
+#next-option-button{
+    left: 250px;
+}
+
+#toggle-option-button{
+    left: 325px;
+}
+
+.experience-button{
+    display: none;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 0;
+    color: white;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.2m;
+    line-height: 50px;
+    z-index: 300;
+    position: absolute;
+}
+
+#new-experience-button{
+    left: 5%;
+    top: 5%;
+}
+
+#load-experience-button{
+    left: 5%;
+    top: 30%;
+}
+
+#next-tool-button{
+    right: 30%;
+    bottom: 5%;
+}
+
+#prev-tool-button{
+    left: 30%;
+    bottom: 5%;
+}
+
+#standard-overlay-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    display: none;
+    z-index: 295;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#standard-overlay-contents{
+    display: none;
+    opacity: 0;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
+}
+
+.flat-option-button{
+    display: inline-block;
+    margin: 5px 10px;
+    width: 75px;
+    height: 75px;
+    border-radius: 15px;
+    border: 2px white solid;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+#overlay-contents-header{
+    width: 100%;
+    height: 75px;
+    font-family: monospace;
+    color: white;
+    line-height: 24px;
+}
+
+h2{
+    width: 100%;
+    text-align: center;
+}
+
+#overlay-contents-footer{
+    text-align: center;
+    font-style: italic;
+    text-align: center;
+    color: white;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+h2{
+    font-weight: 800;
+}
+
+#linkedin-flat-button{
+    background-image: url('../media/texture/linkedin-texture.png');
+}
+
+#call-flat-button{
+    background-image: url('../media/texture/call-texture.png');
+}
+
+#pARk-flat-button{
+    background-image: url('../media/texture/globe-texture.png');
+}
+
+#media-flat-button{
+    background-image: url('../media/texture/visuals-texture.png');
+}
+
+#exposition-flat-button{
+    background-image: url('../media/texture/exposition-texture.png');
+}
+
+#settings-flat-button{
+    background-image: url('../media/img/utility.png');
+}

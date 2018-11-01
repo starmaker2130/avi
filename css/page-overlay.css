@@ -1,0 +1,135 @@
+#page-overlay-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    display: none;
+    width: 100%;
+    height: 0;
+}
+
+#linkedin-frame{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    margin-left: -180px;
+    display: none;
+    opacity: 0;
+    background-color: blue;
+}
+
+#linkedin-page-container{
+    width: 100%;
+    height: 100%;
+    background-color: deepskyblue;
+    display: none;
+    opacity: 0;
+}
+
+#main-profile-container{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    margin-left: -180px;
+    width: 360px;
+    height: 360px;
+    background-color: white;
+}
+
+#linkedin-account-name{
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
+}
+
+#linkedin-current-job{
+    width: 100%;
+    text-align: center;
+    line-height: 25px;
+}
+
+#linkedin-institution-list{
+    width: 100%;
+    text-align: center;
+
+}
+
+#linkedin-city-name{
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+#more-button{
+    text-align: center;
+    display: block;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    margin: 10px auto;
+    border: 2px gray solid;
+}
+
+#motto-container{
+    text-align: center;
+    width: 100%;
+    line-height: 75px;
+}
+
+#main-linkedin-options{
+    width: 300px;
+    height: 60px;
+    display: block;
+    margin: 0 auto;
+}
+
+#contact-info-button{
+    width: 47%;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    border: 2px gray solid;
+    text-align: center;
+    font-size: 0.8em;
+    white-space: nowrap;
+}
+
+#connections-button{
+    width: 47%;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    border: 2px gray solid;;
+    text-align: center;
+    font-size: 0.8em;
+    white-space: nowrap;
+}
+
+#account-profile-picture{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+    border: 2px black solid;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: -25%;
+    background-color: green;
+}
+
+#back-to-ar-button{
+    z-index: 550;
+    display: none;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px white solid;
+    background-color: white;
+    color: black;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    margin-left: -25px;
+}
