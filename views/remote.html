@@ -51,7 +51,7 @@
             });
             
             $('#launch-overlay-container').click(function(){
-                sessionManager.connection.emit('checkDeviceType', {status: 1});
+                sessionManager.connection.emit('connectRemote', {status: true});
                 $(this).animate({
                     height: 0,
                     opacity: 0

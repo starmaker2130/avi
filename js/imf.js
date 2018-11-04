@@ -11,7 +11,14 @@ var sessionManager = {
     connection: null,
     deviceType: null,
     view: null,
-    mode: null
+    mode: null,
+    pageMatrix: null,
+    selectionMatrix: [
+        [{top: '1%', left: '1%'}, {top: '1%', left: '60%'}, {top: '1%', left: '65%'}, {top: '1%', left: '70%'}],
+        [{top: '5%', left: '1%'}, {top: '5%', left: '60%'}, {top: '5%', left: '65%'}, {top: '5%', left: '70%'}],
+        [{top: '10%', left: '1%'}, {top: '10%', left: '60%'}, {top: '10%', left: '65%'}, {top: '10%', left: '70%'}],
+        [{top: '15%', left: '1%'}, {top: '15%', left: '60%'}, {top: '15%', left: '65%'}, {top: '15%', left: '70%'}],
+    ]
 };
 
 function openOrderPage(){
@@ -30,6 +37,7 @@ function openOrderPage(){
             }, 500);
         });
         sessionManager.page = 'order';
+       // sessionManager.connection.emit('mainScreenPageChange', {target: 'order'});
     }, 1100);
 }
 
@@ -57,7 +65,9 @@ function loadMediaItem(i){
 document.addEventListener('DOMContentLoaded', function(){
     
     sessionManager.connection = io.connect(location.host);    
-
+    
+    sessionManager.connection.emit('connectMainScreen', {status: true});
+    
     sessionManager.connection.on('loadDeviceType', function(data){
         var type = data.type;
         sessionManager.deviceType = type;
@@ -71,6 +81,19 @@ document.addEventListener('DOMContentLoaded', function(){
             sessionManager.mode = 'beta\dev\rel';
 
         }
+    });
+    
+    sessionManager.connection.on('mainScreenPageChange', function(data){
+        var matrix = data.matrix;
+        var directionalX = data.position.x;
+        var directionalY = data.position.y;
+        sessionManager.pageMatrix = matrix;
+        
+        var setting = sessionManager.selectionMatrix[directionalY][directionalX];
+        $('#currently-selected-item-overlay').css({
+            top: setting.top,
+            left: setting.left
+        });
     });
     
     loadContentFromDatabase();

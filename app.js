@@ -39,6 +39,28 @@ var config = {
     ]
 };
 
+var scenes = [];
+var guests = [];
+
+var systemLogic = {
+    remoteConnected: false,
+    remoteList: [],
+    mainScreenConnected: false,
+    mainScreen: null,
+    remoteActionVisibleOnMainScreen: false,
+    pos: {
+        x: 0,
+        y: 0
+    }
+};
+
+var remotePageMatrix = [
+    [null, null, null, null], 
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null]
+];
+
 var dir = config.DIRECTORY;
 
 app.engine('html', require('ejs').renderFile);
@@ -50,38 +72,35 @@ app.use(express.static('/'));
 
 var deviceType = 'unknown';
 
-app.get('/', function(req, res){
-    if(deviceType=='unknown'){
-        var result = new WhichBrowser(req.headers);
-        console.log(result.toString());
+function checkInitialDeviceConnectionType(headers, ip){
+    var result = new WhichBrowser(headers);
+    console.log(result.toString());
 
-        if(result.isType('desktop')){
-            console.log('This is a desktop computer. \n User is most likely streaming firectly from eV quARk.');
-            deviceType = 'desktop';
-        }
-        else{
-            console.log('This is a mobile device. \n User is most likely connecting her remote.');
-            deviceType = 'mobile';
-        }
+    if(result.isType('desktop')){
+        console.log('This is a desktop computer. \n User is most likely streaming firectly from eV quARk.');
+        deviceType = 'desktop';
+        
+        console.log(`remote connected? ${systemLogic.remoteConnected}`);
+        console.log(systemLogic.remoteList);
     }
+    else{
+        console.log('This is a mobile device. \n User is most likely connecting her remote.');
+        deviceType = 'mobile';
+        console.log(remotePageMatrix);
+    }
+}
+app.get('/', function(req, res){
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    var headers = req.headers;
+    checkInitialDeviceConnectionType(headers, ip);
     
     res.render('snackshack.html',{root: dir[0]});
 });
 
 app.get('/remote', function(req, res){
-    if(deviceType=='unknown'){
-        var result = new WhichBrowser(req.headers);
-        console.log(result.toString());
-
-        if(result.isType('desktop')){
-            console.log('This is a desktop computer. \n User is most likely streaming firectly from eV quARk.');
-            deviceType = 'desktop';
-        }
-        else{
-            console.log('This is a mobile device. \n User is most likely connecting her remote.');
-            deviceType = 'mobile';
-        }
-    }
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    var headers = req.headers;
+    checkInitialDeviceConnectionType(headers, ip);
     
     res.render('remote.html',{root: dir[0]});
 });
@@ -159,18 +178,26 @@ var io = require('socket.io').listen(app.listen(config.PORT, function(){
     console.log(`[0] listening on port ${config.PORT}`);
 }));
 
-var scenes = [];
-
-var guests = [
-    
-];
-
 io.sockets.on('connection', function(socket){
     console.log('client connected.');
     var conn = socket;
     
-    socket.on('checkDeviceType', function(data){
-        socket.emit('loadDeviceType', {type: deviceType});
+    socket.on('connectRemote', function(data){
+        var ip = socket.handshake.address;
+        console.log('new connection from ' + ip.address + ':' + ip.port);
+        //console.log('new connection connects');
+        systemLogic.remoteConnected = data.status;
+        systemLogic.remoteList.push({type: 'mobile' , address: ip, connection: socket});
+        console.log(`remote connected? ${systemLogic.remoteConnected}`);
+        console.log(systemLogic.remoteList);
+        console.log(`main screen connected? ${systemLogic.mainScreenConnected}`);
+        socket.emit('confirmRemoteConnection', {status: true});
+    });
+    
+    socket.on('connectMainScreen', function(data){
+        var ip = socket.handshake.address;
+        systemLogic.mainScreenConnected = true;
+        systemLogic.mainScreen = {type: 'desktop' , address: ip, connection: socket};
     });
     
     socket.on('identify', function(data){
@@ -222,10 +249,50 @@ io.sockets.on('connection', function(socket){
     });
     
     socket.on('dpadEvent', function(data){
+       // console.log('remotes acting');
+        //console.log('-------------------------------------');
+        //console.log(systemLogic.remoteList);//ush({type: 'mobile' , address: ip, connection: socket});
         var direction = data.direction;
-        console.log(direction);
+        remotePageMatrix[systemLogic.pos.y][systemLogic.pos.x]= 0;
+        switch(direction){
+            case 'up':
+                if(systemLogic.pos.y>0){
+                    systemLogic.pos.y--;
+                }
+                break;
+            case 'down':
+                if(systemLogic.pos.y<3){
+                    systemLogic.pos.y++;
+                }
+                break;
+            case 'left':
+                if(systemLogic.pos.x>0){
+                    systemLogic.pos.x--;
+                }
+                break;
+            case 'right':
+                if(systemLogic.pos.x<3){
+                    systemLogic.pos.x++;
+                }
+                break;
+            default:
+                break;
+        }
+        remotePageMatrix[systemLogic.pos.y][systemLogic.pos.x] = 1;
+        console.log(`direction pressed: ${direction}`);
+        /*//console.log(remotePageMatrix);
+        console.log('-------------------------------------');
+        console.log('screens affected');
+        console.log('-------------------------------------');
+        console.log(systemLogic.mainScreen);*/
+        systemLogic.mainScreen.connection.emit('mainScreenPageChange', {matrix: remotePageMatrix, position: systemLogic.pos});
+        
     });
-
+    
+    socket.on('recordSuccessfulRemoteToScreenInteraction', function(data){
+        systemLogic.remoteActionVisibleOnMainScreen == data.status;
+    });
+    
     socket.on('disconnect', function(){
         console.log(`socket ${socket.id} disconnected.`);
     });
