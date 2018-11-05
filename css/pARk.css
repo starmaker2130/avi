@@ -17,6 +17,7 @@ body, html{
     top: 10%;
     right: 5%;
     width: 300px;
+    height: 100px;
     color: black;
     font-size: 1.2em;
     font-family: 'IBM Plex Sans', sans-serif;
@@ -27,6 +28,8 @@ body, html{
     height: 100%;
     width: 30%;
     text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
     text-transform: lowercase;
     font-weight: 400;
     cursor: pointer;
@@ -321,7 +324,7 @@ body, html{
     font-size: 110%;
     border-radius: 5px;
     border: 1px black solid;
-    background-color: yellow;
+    background-color: rgba(254, 255, 117, 1.0);
     color: black;
     cursor: pointer;
 }
@@ -566,13 +569,15 @@ input[type=button]:focus{
 }
 
 #currently-selected-item-overlay{
+    display: none;
+    opacity: 0;
     z-index: 300;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     position: absolute;
-    top: 2%;
-    left: 2%;
+    top: 3%;
+    left: 6%;
     border: 3px white solid;
     background-color: rgba(255, 255, 255, 0.4);
 }

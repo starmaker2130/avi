@@ -29,25 +29,25 @@
             connection: null,
             deviceType: null,
             view: null,
-            mode: null
+            mode: null,
+            onPage: {
+                name: null,
+                maxLevel: null
+            }
         };
         
         document.addEventListener('DOMContentLoaded', function(){
             sessionManager.connection = io.connect(location.host);    
             
-            sessionManager.connection.on('loadDeviceType', function(data){
-                var type = data.type;
-                sessionManager.deviceType = type;
-                
-                if(type=='desktop'){
-                    console.log('TODO: verify whether user is on snack shack main or using remote by waiting for remote tap trigger; if a remote tap is initiated then the view is in developer mode and the program shold record it as a desktop view of the remote for developers purposes');
-                }
-                else if(type=='mobile'){
-                    
-                    sessionManager.view = 'remote';
-                    sessionManager.mode = 'beta\dev\rel';
-                    
-                }
+            sessionManager.connection.on('confirmRemoteConnection', function(data){
+                var status = data.status;
+                sessionManager.deviceType = 'mobile';   
+                sessionManager.view = 'remote';
+                sessionManager.mode = 'beta\dev\rel';
+                sessionManager.onPage = data.onPage;
+                console.log('House of Venus REmote v. 0.2.0\n-------\n\nauthor: Patrice-Morgan Ongoly \n ---');
+                console.log(data.onPage.name);
+                console.log(data.onPage.maxLevel);
             });
             
             $('#launch-overlay-container').click(function(){
@@ -85,7 +85,7 @@
                 var direction = dpad_id.substring(0, dpad_id.indexOf('-'));
                 console.log(dpad_id);
                 console.log(`go ${dpad_id}`);
-                sessionManager.connection.emit('dpadEvent', {direction: direction});
+                sessionManager.connection.emit('dpadEvent', {direction: direction, maxLevel: sessionManager.onPage.maxLevel});
             });
         });
     </script>

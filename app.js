@@ -191,7 +191,8 @@ io.sockets.on('connection', function(socket){
         console.log(`remote connected? ${systemLogic.remoteConnected}`);
         console.log(systemLogic.remoteList);
         console.log(`main screen connected? ${systemLogic.mainScreenConnected}`);
-        socket.emit('confirmRemoteConnection', {status: true});
+        socket.emit('confirmRemoteConnection', {status: true, onPage: {name: 'home', maxLevel: {x: 3, y: 2}}});
+        systemLogic.mainScreen.connection.emit('showRemoteSelectionOverlay', {status: true});
     });
     
     socket.on('connectMainScreen', function(data){
@@ -253,6 +254,7 @@ io.sockets.on('connection', function(socket){
         //console.log('-------------------------------------');
         //console.log(systemLogic.remoteList);//ush({type: 'mobile' , address: ip, connection: socket});
         var direction = data.direction;
+        var max = data.maxLevel;
         remotePageMatrix[systemLogic.pos.y][systemLogic.pos.x]= 0;
         switch(direction){
             case 'up':
@@ -261,7 +263,7 @@ io.sockets.on('connection', function(socket){
                 }
                 break;
             case 'down':
-                if(systemLogic.pos.y<3){
+                if(systemLogic.pos.y<max.y){
                     systemLogic.pos.y++;
                 }
                 break;
@@ -271,7 +273,7 @@ io.sockets.on('connection', function(socket){
                 }
                 break;
             case 'right':
-                if(systemLogic.pos.x<3){
+                if(systemLogic.pos.x<max.x){
                     systemLogic.pos.x++;
                 }
                 break;

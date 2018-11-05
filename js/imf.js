@@ -13,12 +13,65 @@ var sessionManager = {
     view: null,
     mode: null,
     pageMatrix: null,
-    selectionMatrix: [
-        [{top: '1%', left: '1%'}, {top: '1%', left: '60%'}, {top: '1%', left: '65%'}, {top: '1%', left: '70%'}],
-        [{top: '5%', left: '1%'}, {top: '5%', left: '60%'}, {top: '5%', left: '65%'}, {top: '5%', left: '70%'}],
+    selectionMatrix: null,
+    calculateSelectionMatrix: function(){
+        var currentlyOn = this.page;
+        var currentMatrix = null;
+        switch(currentlyOn){
+            case 'home':
+                var logo = $('#logo-container').offset();
+                var catalog = $('#catalog-option').offset();
+                var order = $('#order-option').offset();
+                var contact = $('#contact-option').offset();
+                var footerOff = $('#footer').offset()
+                var footerWidth = $('#footer').width();
+                var xpos = footerOff.left + footerWidth/2 - 50;
+                var ypos =  footerOff.top -  50;
+                
+                currentMatrix = [
+                [{top: logo.top, left: logo.left}, {top: order.top, left: order.left}, {top: catalog.top, left: catalog.left}, {top: contact.top, left: contact.left}],
+        [{top: $('#get-cash-option').offset().top, left: $('#get-cash-option').offset().left}, {top: $('#get-internet-option').offset().top, left: $('#get-internet-option').offset().left}, {top: $('#get-snacks-option').offset().top, left: $('#get-snacks-option').offset().left}, {top: $('#get-rides-option').offset().top, left: $('#get-rides-option').offset().left}],
+        [{top: ypos, left: xpos}, {top: ypos, left: xpos}, {top: ypos, left: xpos}, {top: ypos, left: xpos}],
+                    ];
+                break;
+            case 'order':
+                var $this = $('#logo-container');
+                var offset = $this.offset();
+      
+                currentMatrix = [
+                [{top: offset.top, left: logo.left}, {top: '5%', left: '60%'}, {top: '5%', left: '71%'}, {top: '5%', left: '82%'}],
+        [{top: '40%', left: '40%'}, {top: '40%', left: '50%'}, {top: '40%', left: '60%'}, {top: '40%', left: '70%'}],
         [{top: '10%', left: '1%'}, {top: '10%', left: '60%'}, {top: '10%', left: '65%'}, {top: '10%', left: '70%'}],
         [{top: '15%', left: '1%'}, {top: '15%', left: '60%'}, {top: '15%', left: '65%'}, {top: '15%', left: '70%'}],
-    ]
+                    ];
+                break;
+            case 'catalog':
+                currentMatrix = [
+                [{top: logo.top, left: logo.left}, {top: '5%', left: '60%'}, {top: '5%', left: '71%'}, {top: '5%', left: '82%'}],
+        [{top: '40%', left: '40%'}, {top: '40%', left: '50%'}, {top: '40%', left: '60%'}, {top: '40%', left: '70%'}],
+        [{top: '10%', left: '1%'}, {top: '10%', left: '60%'}, {top: '10%', left: '65%'}, {top: '10%', left: '70%'}],
+        [{top: '15%', left: '1%'}, {top: '15%', left: '60%'}, {top: '15%', left: '65%'}, {top: '15%', left: '70%'}],
+                    ];
+                break;
+            case 'contact':
+                currentMatrix = [
+                [{top: logo.top, left: logo.left}, {top: '5%', left: '60%'}, {top: '5%', left: '71%'}, {top: '5%', left: '82%'}],
+        [{top: '40%', left: '40%'}, {top: '40%', left: '50%'}, {top: '40%', left: '60%'}, {top: '40%', left: '70%'}],
+        [{top: '10%', left: '1%'}, {top: '10%', left: '60%'}, {top: '10%', left: '65%'}, {top: '10%', left: '70%'}],
+        [{top: '15%', left: '1%'}, {top: '15%', left: '60%'}, {top: '15%', left: '65%'}, {top: '15%', left: '70%'}],
+                    ];
+                break;
+            default:
+                currentMatrix = [
+                    [null, null, null, null],
+                    [null, null, null, null],
+                    [null, null, null, null],
+                    [null, null, null, null],
+                ];
+                break;
+        }
+        this.selectionMatrix = currentMatrix;
+    }
 };
 
 function openOrderPage(){
@@ -54,8 +107,7 @@ function loadMediaItem(i){
     var markup = `<div id='media-content-preview-${item.number}' class='media-content-preview-panel' style='background-image: ${item.bgi}; background-size: ${item.bgs}; background-position: ${item.bgp}; background-repeat: ${item.bgr}'>
                 <div id='media-content-title-${item.number}' class='media-content-title'>${item.title}</div>
                 <div id='media-rating-${item.number}' class='media-rating'>${item.rating}</div>
-            </div>;
-</div>`;
+            </div>`;
     
     sessionManager.content.available.push(item.title);
 
@@ -89,11 +141,16 @@ document.addEventListener('DOMContentLoaded', function(){
         var directionalY = data.position.y;
         sessionManager.pageMatrix = matrix;
         
+        sessionManager.calculateSelectionMatrix();
+        
         var setting = sessionManager.selectionMatrix[directionalY][directionalX];
-        $('#currently-selected-item-overlay').css({
-            top: setting.top,
-            left: setting.left
-        });
+        $('#currently-selected-item-overlay').css(setting);
+    });
+    
+    sessionManager.connection.on('showRemoteSelectionOverlay', function(data){
+        $('#currently-selected-item-overlay').show().animate({
+            opacity: 1.0
+        }, 1000);
     });
     
     loadContentFromDatabase();
