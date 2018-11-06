@@ -29,76 +29,132 @@ var sessionManager = {
         switch(currentlyOn){
             case 'home':                
                 currentMatrix = [
-                [
-                    {top: logo.top, left: logo.left}, 
-                    {top: order.top, left: order.left}, 
-                    {top: catalog.top, left: catalog.left}, 
-                    {top: contact.top, left: contact.left}
-                ],
-        [
-            {top: $('#get-cash-option').offset().top, left: $('#get-cash-option').offset().left},
-            {top: $('#get-internet-option').offset().top, left: $('#get-internet-option').offset().left},
-            {top: $('#get-snacks-option').offset().top, left: $('#get-snacks-option').offset().left},
-            {top: $('#get-rides-option').offset().top, left: $('#get-rides-option').offset().left}
-        ],
-        [
-            {top: ypos, left: xpos},
-            {top: ypos, left: xpos}, 
-            {top: ypos, left: xpos},
-            {top: ypos, left: xpos}
-        ],
-                    ];
+                    [
+                        {top: logo.top, left: logo.left}, 
+                        {top: order.top, left: order.left}, 
+                        {top: catalog.top, left: catalog.left}, 
+                        {top: contact.top, left: contact.left}
+                    ],
+                    [
+                        {top: $('#get-cash-option').offset().top, left: $('#get-cash-option').offset().left},
+                        {top: $('#get-internet-option').offset().top, left: $('#get-internet-option').offset().left},
+                        {top: $('#get-snacks-option').offset().top, left: $('#get-snacks-option').offset().left},
+                        {top: $('#get-rides-option').offset().top, left: $('#get-rides-option').offset().left}
+                    ],
+                    [
+                        {top: ypos, left: xpos},
+                        {top: ypos, left: xpos}, 
+                        {top: ypos, left: xpos},
+                        {top: ypos, left: xpos}
+                    ]
+                ];
                 break;
             case 'order':
                 var leftIndent = $('#snacks-option').offset().left;
                 currentMatrix = [
-                [
-                    {top: logo.top, left: logo.left},
-                    {top: order.top, left: order.left},
-                    {top: catalog.top, left: catalog.left},
-                    {top: contact.top, left: contact.left}
-                ],
-        [
-            {top: $('#snacks-option').offset().top, left: leftIndent},
-            {top: $('#snacks-option').offset().top, left: leftIndent},
-            {top: $('#snacks-option').offset().top, left: leftIndent},
-            {top: $('#snacks-option').offset().top, left: leftIndent}
-        ],
-        [
-            {top: $('#connect-option').offset().top, left: leftIndent},
-            {top: $('#connect-option').offset().top, left: leftIndent},
-            {top: $('#connect-option').offset().top, left: leftIndent},
-            {top: $('#connect-option').offset().top, left: leftIndent}
-        ],
-        [
-            {top: $('#rides-option').offset().top, left: leftIndent},
-            {top: $('#rides-option').offset().top, left: leftIndent},
-            {top: $('#rides-option').offset().top, left: leftIndent},
-            {top: $('#rides-option').offset().top, left: leftIndent}
-        ],
-            [
-                {top: $('#withdraw-option').offset().top, left: leftIndent},
-                {top: $('#withdraw-option').offset().top, left: leftIndent},
-                {top: $('#withdraw-option').offset().top, left: leftIndent},
-                {top: $('#withdraw-option').offset().top, left: leftIndent}
-            ],
-            ];
+                    [
+                        {top: logo.top, left: logo.left},
+                        {top: order.top, left: order.left},
+                        {top: catalog.top, left: catalog.left},
+                        {top: contact.top, left: contact.left}
+                    ],
+                    [
+                        {top: $('#snacks-option').offset().top, left: leftIndent},
+                        {top: $('#snacks-option').offset().top, left: leftIndent},
+                        {top: $('#snacks-option').offset().top, left: leftIndent},
+                        {top: $('#snacks-option').offset().top, left: leftIndent}
+                    ],
+                    [
+                        {top: $('#connect-option').offset().top, left: leftIndent},
+                        {top: $('#connect-option').offset().top, left: leftIndent},
+                        {top: $('#connect-option').offset().top, left: leftIndent},
+                        {top: $('#connect-option').offset().top, left: leftIndent}
+                    ],
+                    [
+                        {top: $('#rides-option').offset().top, left: leftIndent},
+                        {top: $('#rides-option').offset().top, left: leftIndent},
+                        {top: $('#rides-option').offset().top, left: leftIndent},
+                        {top: $('#rides-option').offset().top, left: leftIndent}
+                    ],
+                    [
+                        {top: $('#withdraw-option').offset().top, left: leftIndent},
+                        {top: $('#withdraw-option').offset().top, left: leftIndent},
+                        {top: $('#withdraw-option').offset().top, left: leftIndent},
+                        {top: $('#withdraw-option').offset().top, left: leftIndent}
+                    ],
+                    [
+                        {top: ypos, left: xpos},
+                        {top: ypos, left: xpos}, 
+                        {top: ypos, left: xpos},
+                        {top: ypos, left: xpos}
+                    ]
+                ];
                 break;
             case 'catalog':
+                var leftCol = $('#media-content-preview-0').offset().left;
+                var middleCol = $('#media-content-preview-1').offset().left;
+                var rightCol = $('#media-content-preview-2').offset().left;
+                
                 currentMatrix = [
-                [{top: logo.top, left: logo.left}, {top: order.top, left: order.left}, {top: catalog.top, left: catalog.left}, {top: contact.top, left: contact.left}],
-        [{top: '40%', left: '40%'}, {top: '40%', left: '50%'}, {top: '40%', left: '60%'}, {top: '40%', left: '70%'}],
-        [{top: '10%', left: '1%'}, {top: '10%', left: '60%'}, {top: '10%', left: '65%'}, {top: '10%', left: '70%'}],
-        [{top: '15%', left: '1%'}, {top: '15%', left: '60%'}, {top: '15%', left: '65%'}, {top: '15%', left: '70%'}],
-                    ];
+                    [
+                        {top: logo.top, left: logo.left},
+                        {top: order.top, left: order.left},
+                        {top: catalog.top, left: catalog.left},
+                        {top: contact.top, left: contact.left}
+                    ],
+                    [
+                        {top: $('#media-content-preview-0').offset().top, left: leftCol},
+                        {top: $('#media-content-preview-1').offset().top, left: middleCol},
+                        {top: $('#media-content-preview-2').offset().top, left: rightCol},
+                        {top: $('#media-content-preview-2').offset().top, left: rightCol}
+                    ],
+                    [
+                        {top: $('#media-content-preview-3').offset().top, left: leftCol},
+                        {top: $('#media-content-preview-4').offset().top, left: middleCol},
+                        {top: $('#media-content-preview-5').offset().top, left: rightCol},
+                        {top: $('#media-content-preview-5').offset().top, left: rightCol}
+                    ],
+                    [
+                        {top: $('#media-content-preview-6').offset().top, left: leftCol},
+                        {top: $('#media-content-preview-7').offset().top, left: middleCol},
+                        {top: $('#media-content-preview-8').offset().top, left: rightCol},
+                        {top: $('#media-content-preview-8').offset().top, left: rightCol}
+                    ],
+                    [
+                        {top: $('#media-content-preview-9').offset().top, left: leftCol},
+                        {top: $('#media-content-preview-10').offset().top, left: middleCol},
+                        {top: $('#media-content-preview-11').offset().top, left: rightCol},
+                        {top: $('#media-content-preview-11').offset().top, left: rightCol}
+                    ],
+                    [
+                        {top: $('#media-content-preview-12').offset().top, left: leftCol},
+                        {top: $('#media-content-preview-13').offset().top, left: middleCol},
+                        {top: $('#media-content-preview-14').offset().top, left: rightCol},
+                        {top: $('#media-content-preview-14').offset().top, left: rightCol}
+                    ],
+                ];
                 break;
             case 'contact':
                 currentMatrix = [
-                [{top: logo.top, left: logo.left}, {top: order.top, left: order.left}, {top: catalog.top, left: catalog.left}, {top: contact.top, left: contact.left}],
-        [{top: '40%', left: '40%'}, {top: '40%', left: '50%'}, {top: '40%', left: '60%'}, {top: '40%', left: '70%'}],
-        [{top: '10%', left: '1%'}, {top: '10%', left: '60%'}, {top: '10%', left: '65%'}, {top: '10%', left: '70%'}],
-        [{top: '15%', left: '1%'}, {top: '15%', left: '60%'}, {top: '15%', left: '65%'}, {top: '15%', left: '70%'}],
-                    ];
+                    [
+                        {top: logo.top, left: logo.left}, 
+                        {top: order.top, left: order.left},
+                        {top: catalog.top, left: catalog.left},
+                        {top: contact.top, left: contact.left}
+                    ],
+                    [
+                        {top: $('#ceo-profile-image').offset().top, left: $('#ceo-profile-image').offset().left}, 
+                        {top: $('#sponsor-profile-image').offset().top, left: $('#sponsor-profile-image').offset().left},
+                        {top: $('#ceo-profile-image').offset().top, left: $('#ceo-profile-image').offset().left}, 
+                        {top: $('#sponsor-profile-image').offset().top, left: $('#sponsor-profile-image').offset().left}
+                    ],
+                    [
+                        {top: $('#contact-link').offset().top, left: $('#contact-link').offset().left},
+                        {top: $('#contact-link').offset().top, left: $('#contact-link').offset().left},
+                        {top: $('#contact-link').offset().top, left: $('#contact-link').offset().left},
+                        {top: $('#contact-link').offset().top, left: $('#contact-link').offset().left}
+                    ]
+                ];
                 break;
             default:
                 currentMatrix = [

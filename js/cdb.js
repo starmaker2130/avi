@@ -116,7 +116,7 @@ var contentDatabase = {
         bgp: 'center 20%',
         bgr: 'no-repeat'
     },
-    'The Dark Knight': {
+    'The Dark Knight Rises': {
         number: 13,
         title: 'The Dark Knight Rises',
         rating: '* * * *',
