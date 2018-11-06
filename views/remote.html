@@ -50,6 +50,13 @@
                 console.log(data.onPage.maxLevel);
             });
             
+            sessionManager.connection.on('loadNewPageData', function(data){
+                console.log('loading new page data');
+                sessionManager.onPage = data.pageData;
+                console.log(sessionManager.onPage.name);
+                console.log(sessionManager.onPage.maxLevel);
+            });
+            
             $('#launch-overlay-container').click(function(){
                 sessionManager.connection.emit('connectRemote', {status: true});
                 $(this).animate({

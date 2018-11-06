@@ -51,11 +51,21 @@ var systemLogic = {
     pos: {
         x: 0,
         y: 0
+    },
+    pageData: {
+        home: {name: 'home', maxLevel: {x: 3, y: 2}},
+        order: {name: 'order', maxLevel: {x: 3, y: 4}},
+        catalog: {name: 'catalog', maxLevel: {x: 3, y: 5}},
+        contact: {name: 'contact', maxLevel: {x: 3, y: 2}}
     }
 };
 
 var remotePageMatrix = [
     [null, null, null, null], 
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
     [null, null, null, null],
     [null, null, null, null],
     [null, null, null, null]
@@ -191,7 +201,7 @@ io.sockets.on('connection', function(socket){
         console.log(`remote connected? ${systemLogic.remoteConnected}`);
         console.log(systemLogic.remoteList);
         console.log(`main screen connected? ${systemLogic.mainScreenConnected}`);
-        socket.emit('confirmRemoteConnection', {status: true, onPage: {name: 'home', maxLevel: {x: 3, y: 2}}});
+        socket.emit('confirmRemoteConnection', {status: true, onPage: systemLogic.pageData.home});
         systemLogic.mainScreen.connection.emit('showRemoteSelectionOverlay', {status: true});
     });
     
@@ -289,6 +299,20 @@ io.sockets.on('connection', function(socket){
         console.log(systemLogic.mainScreen);*/
         systemLogic.mainScreen.connection.emit('mainScreenPageChange', {matrix: remotePageMatrix, position: systemLogic.pos});
         
+    });
+    
+    function broadcast(i, remote){
+        var target = remote;
+        var id = i;
+        console.log(`broadcast page ${target} to remote ${id}`);
+        systemLogic.remoteList[id].connection.emit('loadNewPageData', {pageData: systemLogic.pageData[target]});
+    }
+    
+    socket.on('selectPage', function(data){
+        var target = data.target;
+        for(var i=0; i<systemLogic.remoteList.length; i++){
+            broadcast(i, target);
+        }
     });
     
     socket.on('recordSuccessfulRemoteToScreenInteraction', function(data){

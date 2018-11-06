@@ -17,37 +17,76 @@ var sessionManager = {
     calculateSelectionMatrix: function(){
         var currentlyOn = this.page;
         var currentMatrix = null;
+        var logo = $('#logo-container').offset();
+        var catalog = $('#catalog-option').offset();
+        var order = $('#order-option').offset();
+        var contact = $('#contact-option').offset();
+        var footerOff = $('#footer').offset()
+        var footerWidth = $('#footer').width();
+        var xpos = footerOff.left + footerWidth/2 - 50;
+        var ypos =  footerOff.top -  50;
+        
         switch(currentlyOn){
-            case 'home':
-                var logo = $('#logo-container').offset();
-                var catalog = $('#catalog-option').offset();
-                var order = $('#order-option').offset();
-                var contact = $('#contact-option').offset();
-                var footerOff = $('#footer').offset()
-                var footerWidth = $('#footer').width();
-                var xpos = footerOff.left + footerWidth/2 - 50;
-                var ypos =  footerOff.top -  50;
-                
+            case 'home':                
                 currentMatrix = [
-                [{top: logo.top, left: logo.left}, {top: order.top, left: order.left}, {top: catalog.top, left: catalog.left}, {top: contact.top, left: contact.left}],
-        [{top: $('#get-cash-option').offset().top, left: $('#get-cash-option').offset().left}, {top: $('#get-internet-option').offset().top, left: $('#get-internet-option').offset().left}, {top: $('#get-snacks-option').offset().top, left: $('#get-snacks-option').offset().left}, {top: $('#get-rides-option').offset().top, left: $('#get-rides-option').offset().left}],
-        [{top: ypos, left: xpos}, {top: ypos, left: xpos}, {top: ypos, left: xpos}, {top: ypos, left: xpos}],
+                [
+                    {top: logo.top, left: logo.left}, 
+                    {top: order.top, left: order.left}, 
+                    {top: catalog.top, left: catalog.left}, 
+                    {top: contact.top, left: contact.left}
+                ],
+        [
+            {top: $('#get-cash-option').offset().top, left: $('#get-cash-option').offset().left},
+            {top: $('#get-internet-option').offset().top, left: $('#get-internet-option').offset().left},
+            {top: $('#get-snacks-option').offset().top, left: $('#get-snacks-option').offset().left},
+            {top: $('#get-rides-option').offset().top, left: $('#get-rides-option').offset().left}
+        ],
+        [
+            {top: ypos, left: xpos},
+            {top: ypos, left: xpos}, 
+            {top: ypos, left: xpos},
+            {top: ypos, left: xpos}
+        ],
                     ];
                 break;
             case 'order':
-                var $this = $('#logo-container');
-                var offset = $this.offset();
-      
+                var leftIndent = $('#snacks-option').offset().left;
                 currentMatrix = [
-                [{top: offset.top, left: logo.left}, {top: '5%', left: '60%'}, {top: '5%', left: '71%'}, {top: '5%', left: '82%'}],
-        [{top: '40%', left: '40%'}, {top: '40%', left: '50%'}, {top: '40%', left: '60%'}, {top: '40%', left: '70%'}],
-        [{top: '10%', left: '1%'}, {top: '10%', left: '60%'}, {top: '10%', left: '65%'}, {top: '10%', left: '70%'}],
-        [{top: '15%', left: '1%'}, {top: '15%', left: '60%'}, {top: '15%', left: '65%'}, {top: '15%', left: '70%'}],
-                    ];
+                [
+                    {top: logo.top, left: logo.left},
+                    {top: order.top, left: order.left},
+                    {top: catalog.top, left: catalog.left},
+                    {top: contact.top, left: contact.left}
+                ],
+        [
+            {top: $('#snacks-option').offset().top, left: leftIndent},
+            {top: $('#snacks-option').offset().top, left: leftIndent},
+            {top: $('#snacks-option').offset().top, left: leftIndent},
+            {top: $('#snacks-option').offset().top, left: leftIndent}
+        ],
+        [
+            {top: $('#connect-option').offset().top, left: leftIndent},
+            {top: $('#connect-option').offset().top, left: leftIndent},
+            {top: $('#connect-option').offset().top, left: leftIndent},
+            {top: $('#connect-option').offset().top, left: leftIndent}
+        ],
+        [
+            {top: $('#rides-option').offset().top, left: leftIndent},
+            {top: $('#rides-option').offset().top, left: leftIndent},
+            {top: $('#rides-option').offset().top, left: leftIndent},
+            {top: $('#rides-option').offset().top, left: leftIndent}
+        ],
+            [
+                {top: $('#withdraw-option').offset().top, left: leftIndent},
+                {top: $('#withdraw-option').offset().top, left: leftIndent},
+                {top: $('#withdraw-option').offset().top, left: leftIndent},
+                {top: $('#withdraw-option').offset().top, left: leftIndent}
+            ],
+            ];
                 break;
             case 'catalog':
                 currentMatrix = [
-                [{top: logo.top, left: logo.left}, {top: '5%', left: '60%'}, {top: '5%', left: '71%'}, {top: '5%', left: '82%'}],
+                [{top: logo.top, left: logo.left}, {top: order.top, left: order.left}, {top: catalog.top, left: catalog.left}, {top: contact.top, left: contact.left}],
         [{top: '40%', left: '40%'}, {top: '40%', left: '50%'}, {top: '40%', left: '60%'}, {top: '40%', left: '70%'}],
         [{top: '10%', left: '1%'}, {top: '10%', left: '60%'}, {top: '10%', left: '65%'}, {top: '10%', left: '70%'}],
         [{top: '15%', left: '1%'}, {top: '15%', left: '60%'}, {top: '15%', left: '65%'}, {top: '15%', left: '70%'}],
@@ -55,7 +94,7 @@ var sessionManager = {
                 break;
             case 'contact':
                 currentMatrix = [
-                [{top: logo.top, left: logo.left}, {top: '5%', left: '60%'}, {top: '5%', left: '71%'}, {top: '5%', left: '82%'}],
+                [{top: logo.top, left: logo.left}, {top: order.top, left: order.left}, {top: catalog.top, left: catalog.left}, {top: contact.top, left: contact.left}],
         [{top: '40%', left: '40%'}, {top: '40%', left: '50%'}, {top: '40%', left: '60%'}, {top: '40%', left: '70%'}],
         [{top: '10%', left: '1%'}, {top: '10%', left: '60%'}, {top: '10%', left: '65%'}, {top: '10%', left: '70%'}],
         [{top: '15%', left: '1%'}, {top: '15%', left: '60%'}, {top: '15%', left: '65%'}, {top: '15%', left: '70%'}],
@@ -63,7 +102,7 @@ var sessionManager = {
                 break;
             default:
                 currentMatrix = [
-                    [null, null, null, null],
+                    [{top: logo.top, left: logo.left}, {top: order.top, left: order.left}, {top: catalog.top, left: catalog.left}, {top: contact.top, left: contact.left}],
                     [null, null, null, null],
                     [null, null, null, null],
                     [null, null, null, null],
@@ -90,7 +129,7 @@ function openOrderPage(){
             }, 500);
         });
         sessionManager.page = 'order';
-       // sessionManager.connection.emit('mainScreenPageChange', {target: 'order'});
+        sessionManager.connection.emit('selectPage', {target: 'order'});
     }, 1100);
 }
 
@@ -221,6 +260,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }, 1100);
 
         sessionManager.page = 'catalog';
+        sessionManager.connection.emit('selectPage', {target: 'catalog'});
     });
 
     document.getElementById('contact-option').addEventListener('click', function(){
@@ -237,6 +277,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }, 1100);
 
         sessionManager.page = 'contact';
+        sessionManager.connection.emit('selectPage', {target: 'contact'});
     });
 
     document.getElementById('snacks-option').addEventListener('click', function(){
