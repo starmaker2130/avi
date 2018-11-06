@@ -32,7 +32,8 @@
             mode: null,
             onPage: {
                 name: null,
-                maxLevel: null
+                maxLevel: null,
+                actionMatrix: null
             }
         };
         
@@ -48,6 +49,7 @@
                 console.log('House of Venus REmote v. 0.2.0\n-------\n\nauthor: Patrice-Morgan Ongoly \n ---');
                 console.log(data.onPage.name);
                 console.log(data.onPage.maxLevel);
+                console.log(data.onPage.actionMatrix);
             });
             
             sessionManager.connection.on('loadNewPageData', function(data){
@@ -55,6 +57,7 @@
                 sessionManager.onPage = data.pageData;
                 console.log(sessionManager.onPage.name);
                 console.log(sessionManager.onPage.maxLevel);
+                console.log(sessionManager.onPage.actionMatrix);
             });
             
             $('#launch-overlay-container').click(function(){
@@ -92,7 +95,7 @@
                 var direction = dpad_id.substring(0, dpad_id.indexOf('-'));
                 console.log(dpad_id);
                 console.log(`go ${dpad_id}`);
-                sessionManager.connection.emit('dpadEvent', {direction: direction, maxLevel: sessionManager.onPage.maxLevel});
+                sessionManager.connection.emit('dpadEvent', {direction: direction, maxLevel: sessionManager.onPage.maxLevel, actionMatrix: sessionManager.onPage.actionMatrix});
             });
         });
     </script>

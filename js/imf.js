@@ -248,6 +248,12 @@ document.addEventListener('DOMContentLoaded', function(){
         }, 1000);
     });
     
+    sessionManager.connection.on('remoteActionRequest', function(data){
+        var target = data.action;
+        console.log(target);
+        $(`${target}`).click();
+    });
+    
     loadContentFromDatabase();
 
     setTimeout(function(){
@@ -285,6 +291,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }, 1100);
 
         sessionManager.page = 'home';
+        sessionManager.connection.emit('selectPage', {target: 'home'});
     });
 
     document.getElementById('order-option').addEventListener('click', function(){

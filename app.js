@@ -53,10 +53,138 @@ var systemLogic = {
         y: 0
     },
     pageData: {
-        home: {name: 'home', maxLevel: {x: 3, y: 2}},
-        order: {name: 'order', maxLevel: {x: 3, y: 4}},
-        catalog: {name: 'catalog', maxLevel: {x: 3, y: 5}},
-        contact: {name: 'contact', maxLevel: {x: 3, y: 2}}
+        home: {
+            name: 'home',
+            maxLevel: {x: 3, y: 2},
+            actionMatrix: [
+                [
+                    '#logo',
+                    '#order-option',
+                    '#catalog-option',
+                    '#contact-option'
+                ],
+                [
+                    '#cash-icon',
+                    '#internet-icon',
+                    '#snacks-icon',
+                    '#rides-icon'
+                ],
+                [
+                    '#footer',
+                    '#footer',
+                    '#footer',
+                    '#footer'
+                ]
+            ]
+        },
+        order: {
+            name: 'order',
+            maxLevel: {x: 3, y: 4},
+            actionMatrix: [
+                [
+                    '#logo',
+                    '#order-option',
+                    '#catalog-option',
+                    '#contact-option'
+                ],
+                [
+                    '#snacks-option',
+                    '#snacks-option',
+                    '#snacks-option',
+                    '#snacks-option',
+                ],
+                [
+                    '#connect-option',
+                    '#connect-option',
+                    '#connect-option',
+                    '#connect-option',
+                ],
+                [
+                    '#rides-option',
+                    '#rides-option',
+                    '#rides-option',
+                    '#rides-option',
+                ],
+                [
+                    '#withdraw-option',
+                    '#withdraw-option',
+                    '#withdraw-option',
+                    '#withdraw-option',
+                ],
+                [
+                    '#footer',
+                    '#footer',
+                    '#footer',
+                    '#footer'
+                ]
+            ]
+        },
+        catalog: {
+            name: 'catalog',
+            maxLevel: {x: 3, y: 5},
+            actionMatrix: [
+                [
+                    '#logo',
+                    '#order-option',
+                    '#catalog-option',
+                    '#contact-option'
+                ],
+                [
+                    '#media-content-preview-0',
+                    '#media-content-preview-1',
+                    '#media-content-preview-2',
+                    '#media-content-preview-2',
+                ],
+                [
+                    '#media-content-preview-3',
+                    '#media-content-preview-4',
+                    '#media-content-preview-5',
+                    '#media-content-preview-5',
+                ],
+                [
+                    '#media-content-preview-6',
+                    '#media-content-preview-7',
+                    '#media-content-preview-8',
+                    '#media-content-preview-8',
+                ],
+                [
+                    '#media-content-preview-9',
+                    '#media-content-preview-10',
+                    '#media-content-preview-11',
+                    '#media-content-preview-11',
+                ],
+                [
+                    '#footer',
+                    '#footer',
+                    '#footer',
+                    '#footer'
+                ]
+            ]
+        },
+        contact: {
+            name: 'contact',
+            maxLevel: {x: 3, y: 2},
+            actionMatrix: [
+                [
+                    '#logo',
+                    '#order-option',
+                    '#catalog-option',
+                    '#contact-option'
+                ],
+                [
+                    '#ceo-profile-image',
+                    '#sponsor-profile-image',
+                    '#ceo-profile-image',
+                    '#sponsor-profile-image'
+                ],
+                [
+                    '#footer',
+                    '#footer',
+                    '#footer',
+                    '#footer'
+                ]
+            ]
+        }
     }
 };
 
@@ -82,6 +210,13 @@ app.use(express.static('/'));
 
 var deviceType = 'unknown';
 
+function broadcast(i, remote){
+    var target = remote;
+    var id = i;
+    console.log(`broadcast page ${target} to remote ${id}`);
+    systemLogic.remoteList[id].connection.emit('loadNewPageData', {pageData: systemLogic.pageData[target]});
+}
+
 function checkInitialDeviceConnectionType(headers, ip){
     var result = new WhichBrowser(headers);
     console.log(result.toString());
@@ -99,6 +234,7 @@ function checkInitialDeviceConnectionType(headers, ip){
         console.log(remotePageMatrix);
     }
 }
+
 app.get('/', function(req, res){
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     var headers = req.headers;
@@ -265,6 +401,7 @@ io.sockets.on('connection', function(socket){
         //console.log(systemLogic.remoteList);//ush({type: 'mobile' , address: ip, connection: socket});
         var direction = data.direction;
         var max = data.maxLevel;
+        var actionMatrix = data.actionMatrix;
         remotePageMatrix[systemLogic.pos.y][systemLogic.pos.x]= 0;
         switch(direction){
             case 'up':
@@ -287,27 +424,25 @@ io.sockets.on('connection', function(socket){
                     systemLogic.pos.x++;
                 }
                 break;
+            case 'select':
+                var targetAction = actionMatrix[systemLogic.pos.y][systemLogic.pos.x];
+                console.log(`perform action ${targetAction}`);
+                systemLogic.mainScreen.connection.emit('remoteActionRequest', {action: targetAction});
+                break;
             default:
                 break;
         }
         remotePageMatrix[systemLogic.pos.y][systemLogic.pos.x] = 1;
         console.log(`direction pressed: ${direction}`);
-        /*//console.log(remotePageMatrix);
+        console.log(remotePageMatrix);
         console.log('-------------------------------------');
-        console.log('screens affected');
+        /*//console.log('screens affected');
         console.log('-------------------------------------');
         console.log(systemLogic.mainScreen);*/
         systemLogic.mainScreen.connection.emit('mainScreenPageChange', {matrix: remotePageMatrix, position: systemLogic.pos});
         
     });
-    
-    function broadcast(i, remote){
-        var target = remote;
-        var id = i;
-        console.log(`broadcast page ${target} to remote ${id}`);
-        systemLogic.remoteList[id].connection.emit('loadNewPageData', {pageData: systemLogic.pageData[target]});
-    }
-    
+        
     socket.on('selectPage', function(data){
         var target = data.target;
         for(var i=0; i<systemLogic.remoteList.length; i++){
