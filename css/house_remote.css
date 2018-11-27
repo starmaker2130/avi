@@ -18,14 +18,19 @@ input[type="button"]:focus{
 #power-button{
     position: absolute;
     top: 2%;
-    right: 1%;
+    right: 3%;
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    background-color: rgba(255, 0, 0, 0.9);
+/*    background-color: rgba(255, 0, 0, 0.9);
     color: white;
     font-size: 150%;
+*/
+    background-image: url('../media/img/power_button.jpg');
+    background-size: 95% 95%;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 #launch-overlay-container{
@@ -50,16 +55,35 @@ input[type="button"]:focus{
     width: 100%;
 }
 
+#create-experience-option{
+    background-color: yellow;
+    color: black;
+}
+
+#load-cARd-option{
+    background-color: red;
+    color: white;
+}
+
+#toggle-ar-option{
+    background-color: aquamarine;
+    color: black;
+}
+
+#fly-eV-option{
+    background-color: blue;
+    color: white;
+}
+
 .navigation-option{
     width: 46%;
     margin-top: 2%;
     margin-left: 3%;
-    height: 180px;
+    height: 250px;
     border-radius: 50%;
     background-color: white;
-    color: black;
     display: inline-block;
-    color: black;
+    font-weight: 900;
     text-align: center;
     line-height: 180px;
     vertical-align: middle;
@@ -68,8 +92,9 @@ input[type="button"]:focus{
 
 #navigation-container{
     width: 95%;
-    height: 360px;
-    margin: 5% auto 0 auto;
+    height: 29%;
+    min-height: 500px;
+    margin: 1% auto 0 auto;
 }
 
 #tap-to-enter{
@@ -82,14 +107,16 @@ input[type="button"]:focus{
     margin-top: -25px;
 }
 
-#direction-pad-container{
+#direction-pad-container, #avionics-pad-container{
+    position: relative;
     width: 80%;
-    height: 45%;
+    height: 50%;
     margin: 5% auto 0 auto;
     border-radius: 50%;
     background-color: rgba( 255, 255, 255, 1.0);
     color: white;
     z-index: 0;
+    padding: 3%;
 }
 
 .direction-pad-button{
@@ -113,5 +140,115 @@ input[type="button"]:focus{
 #down-button, #up-button{
     display: block;
     width: 175px;
-    margin: 5% auto;
+    margin: 0 auto;
+}
+
+#avionics-console-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    display: none;
+    background-color: rgba( 255, 255, 255, 1.0);
+    color: white;
+    z-index: 200;
+}
+
+.avionics-pad-button{
+    height: 175px;
+    font-size: 180%;
+    text-align: center;
+    border-radius: 50%;
+    z-index: 250;
+}
+
+#left-avionics-button, #toggle-avionics-button, #right-avionics-button{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+}
+
+#back-avionics-button, #front-avionics-button{
+    display: block;
+    width: 175px;
+    margin: 0 auto;
+}
+
+.control-button{
+    width: 80%;
+    height: 20%;
+    border-radius: 10px;
+    display: block; 
+    margin: 2% auto;
+    font-size: 160%;
+}
+
+#toggle-voice-control-button{
+    background-color: red;
+    color: white;
+}
+
+#toggle-hand-control-button{
+    background-color: aquamarine;
+    color: black;
+}
+
+#close-avionics-console-button{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: black;
+    color: white;
+    margin: 2% auto;
+    display: block;
+}
+
+.avionics-pad-turn-button{
+    position: absolute; top: 2%;
+    width: 175px;
+    height: 175px;
+    background-color: yellow;
+    color: black;
+    font-weight: 900;
+    font-size: 140%;
+}
+
+#counter-avionics-button{
+    left: 5%;
+    border-radius: 50% 0 0 0;
+}
+
+#clockwise-avionics-button{
+    right: 5%;
+    border-radius: 0 50% 0 0;
+}
+
+#brake-avionics-button{
+    position: absolute;
+    background-color: red;
+    left: 5%;
+    bottom: 5%;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    color: white;
+    font-size: 150%;
+}
+
+#remote-header-container{
+    position: relative;
+    width: 100%;
+    height: 10%;
+}
+
+#remote-header-title{
+    text-align: center;
+    color: white;
+    font-weight: 900;
+    width: 100%;
 }

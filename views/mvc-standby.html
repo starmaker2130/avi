@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Maryland Venture Crucible</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="../media/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../media/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../media/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../media/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../media/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../media/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../media/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../media/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../media/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../media/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../media/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../media/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../media/icons/favicon-16x16.png">
+    <link rel="manifest" href="../media/icons/manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        
+        body, html{
+            width: 100%;
+            height: 100%;
+            background-color: black;
+        }
+        
+        #logo-container{
+            width: 200px;
+            height: 210px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -105px 0 0 -100px;
+            cursor: pointer;
+            color: white;
+        }
+        
+        #logo{
+            background-image: url('../media/texture/globe-texture.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            left: 50%;
+            margin-left: -75px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 10;
+            box-shadow: 2px 2px 2px white;
+        }
+        
+        #logo-bg{
+            background-image: url('../media/img/md-globe.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 150px;
+            height: 150px;
+            left: 50%;
+            margin-left: -75px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+        }
+        
+        #content-header{
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 100%;
+            width: 205px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+    <script src='../js/jquery-3.2.1.min.js'></script>
+    <script>
+        var sessionManager = {
+            page: 'home',
+            section: null,
+            onHommes: false
+        }
+        
+        function requestFullScreen(element) { //    makes the application fullscreen on fullscreen equipped browsers
+            var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen; // Supports most browsers and their versions.
+
+            if (requestMethod) { // Native full screen.
+                requestMethod.call(element);
+            } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+                var wscript = new ActiveXObject("WScript.Shell");
+                if (wscript !== null) {
+                    wscript.SendKeys("{F11}");
+                }
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function(){
+            $('#main-profile-container').click(function(){
+                var elem = document.body;
+                requestFullScreen(elem);
+            });
+        });
+        
+        // region developper
+    </script>
+</head>
+<body>
+    <div id='main-profile-container'>
+        <div id='logo-container'>
+            <div id='logo'></div>
+            <div id='logo-bg'></div>
+            <div id='content-header'>maryland venture crucible</div>
+        </div>
+        <div id='footer'>House of Venus | 2018</div>
+    </div>
+</body>
+</html>

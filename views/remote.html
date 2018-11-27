@@ -34,7 +34,8 @@
                 name: null,
                 maxLevel: null,
                 actionMatrix: null
-            }
+            },
+            openedACAtLeastOnce: false
         };
         
         document.addEventListener('DOMContentLoaded', function(){
@@ -50,6 +51,49 @@
                 console.log(data.onPage.name);
                 console.log(data.onPage.maxLevel);
                 console.log(data.onPage.actionMatrix);
+            });
+            
+            sessionManager.connection.on('loadController', function(data){
+                var status = data.status;
+                if(status){
+                    $('#avionics-console-container').show().animate({
+                        height: '100%',
+                        opacity: 1.0
+                    }, 500, function(){
+                        if(sessionManager.openedACAtLeastOnce){
+                            console.log('avionics pad already equipped with event listeners');
+                        }
+                        else{
+                            $('#counter-avionics-button').click(function(){
+                                sessionManager.connection.emit('apadEvent', {direction: 'counter'});
+                            });
+                            
+                            $('#clockwise-avionics-button').click(function(){
+                                sessionManager.connection.emit('apadEvent', {direction: 'clockwise'});
+                            });
+                            
+                            $('#brake-avionics-button').click(function(){
+                                sessionManager.connection.emit('apadEvent', {direction: 'stop'});
+                            });
+                            
+                            $('.avionics-pad-button').click(function(){
+                                var apad_id = $(this).attr('id');
+                                var a_direction = apad_id.substring(0, apad_id.indexOf('-'));
+                             //   console.log(apad_id);
+                            //    console.log(`go ${apad_id}`);
+                                sessionManager.connection.emit('apadEvent', {direction: a_direction});
+                            });                        }                        
+                    });
+                }
+                else{
+                    console.log('controller could not be loaded');
+                }
+            });
+            
+            sessionManager.connection.on('loadNewPageLevel', function(data){
+                console.log('uploading ')
+                sessionManager.onPage.actionMatrix = data.actionMatrix;
+                
             });
             
             sessionManager.connection.on('loadNewPageData', function(data){
@@ -72,7 +116,7 @@
             
             document.getElementById('create-experience-option').addEventListener('click', function(){
                 console.log('launch show and tell');
-                sessionManager.connection.emit('launchSAT', {status: true});
+                sessionManager.connection.emit('launchShowAndTell', {status: true});
             });
             
             document.getElementById('load-cARd-option').addEventListener('click', function(){
@@ -97,16 +141,41 @@
                 console.log(`go ${dpad_id}`);
                 sessionManager.connection.emit('dpadEvent', {direction: direction, maxLevel: sessionManager.onPage.maxLevel, actionMatrix: sessionManager.onPage.actionMatrix});
             });
+                        
+            $('#close-avionics-console-button').click(function(){
+                $('#avionics-console-container').animate({
+                    height: '0',
+                    opacity: 0
+                }, 500, function(){
+                    $(this).hide();
+                    sessionManager.connection.emit('closeController', {status: true});
+                });
+            });
         });
     </script>
 </head>
 <body>
+    <div id='avionics-console-container'>
+        <div id='avionics-pad-container'>
+            <input id='counter-avionics-button' class='avionics-pad-turn-button' type='button' value='cc' />
+            <input id='clockwise-avionics-button' class='avionics-pad-turn-button' type='button' value='c'/>
+            <input id='front-avionics-button' class='avionics-pad-button' type='button' value='▲' />
+            <input id='left-avionics-button' class='avionics-pad-button' type='button' value='◀'/>
+            <input id='toggle-avionics-button' class='avionics-pad-button' type='button' value='o' />
+            <input id='right-avionics-button' class='avionics-pad-button' type='button' value='▶'/>
+            <input id='back-avionics-button' class='avionics-pad-button' type='button' value='▼'/>
+            <input id='brake-avionics-button' class='avionics-pad-brake-button' type='button' value='e' />
+        </div>
+        <input id='toggle-voice-control-button' class='control-button' type='button' value='voice' />
+        <input id='toggle-hand-control-button' class='control-button' type='button' value='hand' />
+        <input id='close-avionics-console-button' type='button' value='x' />
+    </div>
     <div id='launch-overlay-container'>
         <div id='tap-to-enter'>tap to load remote</div>
     </div>
     <div id='remote-header-container'>
         <div id='remote-header-title'>House of Venus Remote v. 0.1.1.</div>
-        <input id='power-button' type='button' value='H' />
+        <input id='power-button' type='button' value='' />
     </div>
     <div id='main-content-container'>
         <div id='navigation-container'>
@@ -117,11 +186,11 @@
         </div>
         
         <div id='direction-pad-container'>
-            <input id='up-button' class='direction-pad-button' type='button' value='^' />
-            <input id='left-button' class='direction-pad-button' type='button' value='&lt;'/>
+            <input id='up-button' class='direction-pad-button' type='button' value='▲' />
+            <input id='left-button' class='direction-pad-button' type='button' value='◀'/>
             <input id='select-button' class='direction-pad-button' type='button' value='o' />
-            <input id='right-button' class='direction-pad-button' type='button' value='&gt;'/>
-            <input id='down-button' class='direction-pad-button' type='button' value='V'/>
+            <input id='right-button' class='direction-pad-button' type='button' value='▶'/>
+            <input id='down-button' class='direction-pad-button' type='button' value='▼'/>
         </div>
         <div id='footer'>HOMMES Initiative | 2018</div>
     </div>

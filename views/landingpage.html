@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>House of Venus, Benefit Corporation | Home of the cARd, eV, and pARk</title>
+    <link rel='apple-touch-icon' size='57x57' href='../media/icons/apple-icon-57x57.png' />
+    <link rel="apple-touch-icon" sizes="60x60" href="../media/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../media/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../media/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../media/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../media/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../media/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../media/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../media/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../media/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../media/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../media/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../media/icons/favicon-16x16.png">
+    <link rel="manifest" href="../media/icons/manifest.json">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        
+        body, html{
+            width: 100%;
+            height: 100%;
+            background-color: black;
+        }
+        
+        #navigation-container{
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            width: 300px;
+            color: black;
+            font-size: 120%;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        
+        .navigation-option{
+            display: inline-block;
+            height: 100%;
+            width: 30%;
+            text-align: center;
+            text-transform: lowercase;
+            font-weight: 400;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .navigation-option:hover{
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+        
+        #caas-option{
+            text-transform: none;
+        }
+        
+        #caas-option:hover{
+            text-transform: uppercase;
+        }
+        
+        #main-content-container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 380px;
+            margin: -180px 0 0 -300px;
+            color: white;
+        }
+        
+        .action-button{
+            text-transform: uppercase;
+            width: 100px;
+            height: 50px;
+            border-radius: 15px;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            font-size: 90%;
+            font-weight: 900;
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 3px white solid;
+            cursor: pointer;
+        }
+        
+        .action-button:hover{
+            background-color: rgba(255, 255, 255, 1.0);
+            color: black;
+        }
+        
+        .action-button:focus{
+            outline: none;
+        }
+        
+        #acid{
+            width: auto;
+        }
+        
+        #content-header{
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 100%;
+            width: 120px;
+            position: absolute;
+            bottom: 0;
+            text-align: left;
+        }
+        
+        #logo-container{
+            width: 100px;
+            height: 120px;
+            position: absolute;
+            top: 6%;
+            left: 8%;
+            cursor: pointer;
+            color: white;
+        }
+        
+        #logo{
+            background-image: url('./media/texture/globe-texture.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 10;
+            box-shadow: 2px 2px 2px white;
+        }
+        
+        #logo-bg{
+            background-image: url('./media/img/md-globe.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+        }
+        
+        #main-content{
+            font-size: 110%;
+            
+        }
+        
+        .page-content-container{
+            opacity: 0;
+            display: none;
+        }
+        
+        .reseau-option{
+            cursor: pointer;
+        }
+        
+        #transfer-option:hover{
+            color: greenyellow;
+        }
+        
+        #account-option:hover{
+            color: red;
+        }
+        
+        #footer{
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            width: 400px;
+            text-align: center;
+            margin-left: -200px;
+            font-size: 80%;
+            color: white;
+        }
+        
+        #main-content-footer{
+            width: 225px;
+            margin: 5px auto 0 auto;
+        }
+        
+        .page-section{
+            display: none;
+            opacity: 0;
+        }
+        
+        #order-content{
+            width: 100%;
+            height: 100%;
+            overflow: hidden scroll;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 20px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background-color: white;
+        }
+        
+        ::-webkit-scrollbar-button {
+            background-color: white;
+        }
+        
+        ::-webkit-scrollbar-track-piece {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .telecomm-item-header, .financials-item-header, .contact-item-header{
+            font-size: 1.4em;
+            text-transform: lowercase;
+        }
+        
+        .profile-image{
+            margin: 10px auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-image: url('./media/icons.ico/white-profile-icon.png');
+            background-size: 90% 90%;
+            background-position: center center;
+            border: 2px black solid;
+            background-repeat: no-repeat;
+        }
+        
+        #sponsor-profile-image{
+            background-image: url('./media/img/hov-md.png');
+            background-size: 80% 80%;
+            background-color: black;
+        }
+        
+        .profile-container{
+            vertical-align: top;
+            display: inline-block;
+            width: 175px;
+            height: 230px;
+        }
+        
+        #coo-profile{
+            width: 200px;
+        }
+        
+        .profile-description{
+            font-style: italic;
+            text-align: center;
+        }
+        
+        #roster-contaienr{
+            margin: 5% auto;
+            width: 100%;
+            height: 250px;
+        }
+        
+        .contact-item-header{
+            margin: 2% auto;
+        }
+        
+        #question-item-header{
+            margin-top: 15px;
+        }
+        
+        .profile-name{
+            text-align: center;
+        }
+        
+        #main-video-overlay{
+            width: 25px;
+            height: 25x;
+            display: block;
+            z-index: 100;
+            background-color: black;
+            border-radius: 2px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -12px 0 0 -12px;
+            cursor: pointer;
+            border: 2px white solid;
+        }
+        
+        #main-video-overlay:hover{
+            background-color: rgba(255, 255, 255, 0.7)
+        }
+        
+        #ceo-profile-image{
+            background-image: url('./media/img/profile.png');
+            background-size: 130% 110%;
+        }
+        
+        .block-container{
+            width: 32%;
+            height: 175px;
+            display: inline-block;
+            opacity: 0;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            line-height: 175px;
+        }
+        
+        .block-container-label{
+            display: inline-block;
+            text-align: center;
+            width: 32%;
+            height: 100%;
+            opacity: 0;
+        }
+        
+        .block-container-label-row{
+            width: 100%;
+            height: 25px;
+            display: block;
+        }
+        
+        #header-reveal-container{
+            opacity: 1.0;
+        }
+        
+        #work-block-container{
+            background-size: 90% 90%;
+            background-image: url('../media/img/sitting.png');
+            background-position: 0 30px;
+        }
+        
+        #play-block-container{
+            background-image: url('../media/img/walking_phone.png');
+        }
+        
+        #explore-block-container{
+           background-image: url('../media/img/walking_phone.png');/* background-image: url('../media/img/sitting.png');*/
+        }
+        
+        #center-panel-container{
+            width: 100%;
+            height: 175px;
+        }
+        
+        #join-button{
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-image: url("./media/img/md-globe.png");
+            background-size: 150% 150%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin: 25px auto;
+            border: 0;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            opacity: 0;
+        }
+        
+        #join-button:hover{
+            border: 2px white solid;
+            box-shadow: 3px 3px 3px white;
+        }
+        
+        #main-content-header{
+            opacity: 0;
+            color: white;
+            font-size: 230%;
+            text-align: center;
+            font-family: "IBM Plex Sans", sans-serif;
+            font-weight: 900;
+            /*-webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: white;*/
+        }
+        
+        #order-content{
+            overflow-y: scroll;
+        }
+        
+        .order-block-container{
+            position: relative;
+            width: 100%;
+            height: 300px;
+            border: 2px white solid;
+            border-radius: 1px;
+            cursor: pointer;
+        }
+        
+        .order-block-container:hover{
+            background-color: white;
+            color: black;
+        }
+        
+        .order-block-header{
+            position: absolute;
+            top: 3%;
+            left: 3%;
+        }
+        
+        .content-box-row{
+            vertical-align: bottom;
+            text-align: center;
+            width: 25%;
+            margin: 0 1%;
+            height: 100%;
+            border: 0;
+            border-radius: 10px;
+            display: inline-block;
+            cursor: pointer;
+            padding: 2%;
+        }
+        
+        
+        #content-box-container{
+            display: block;
+            margin-top: 2%;
+            font-size: 75%;
+            width: 100%;
+            height: 140px;
+        }
+        
+        #content-box-1{
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+        
+        #content-box-1:hover{
+            background-color: rgba(255, 0, 0, 1.0);
+        }
+        
+        #content-box-2{
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+        
+        #content-box-2:hover{
+            color: black;
+            background-color: rgba(0, 255, 0, 1.0);
+        }
+        
+        #content-box-3{
+            background-color: rgba(0,0, 255, 0.5);
+        }
+        
+        #content-box-3:hover{
+            background-color: rgba(0,0, 255, 1.0);
+        }
+        
+        .block-photo-title{
+            color: white;
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+        }
+        
+        .block-photo{
+            height: 100%;
+            width: 100%;
+            position: relative;
+            background-size: 100% 100%;
+           /* background-color: rgba(255, 255, 255, 0.5);*/
+        }
+        
+        #cARd-block-photo:hover{
+            background-image: url('../media/img/bg/store.gif');
+        }
+        
+        #eV-block-photo:hover{
+            background-image: url('../media/img/bg/reach.gif');
+        }
+    </style>
+    <script src='./js/jquery-3.2.1.min.js'></script>
+    <script>
+        var sessionManager = {
+            page: 'home',
+            section: null,
+            onPreOrder: false
+        }
+        
+        document.addEventListener('DOMContentLoaded', function(){
+            $('#main-video-overlay').animate({
+                opacity: 0,
+                width: '25px',
+                height: '25px'
+            }, 500, function(){
+                $(this).hide();
+            });
+            
+            var contacts = document.getElementsByClassName('contact-item');
+     
+            setTimeout(function(){
+                $('#page-section-0').show().animate({
+                    opacity: 1.0
+                }, 1000, function(){
+                    sessionManager.section = 0;
+                });
+                
+                $('#main-content').show().animate({
+                    opacity: 1.0
+                }, 1000, function(){
+                    $('#work-block-container').animate({
+                        opacity: 1.0 
+                    }, 1000, function(){
+                        $('#play-block-container').animate({
+                            opacity: 1.0 
+                        }, 1000, function(){
+                            $('#explore-block-container').animate({
+                                opacity: 1.0 
+                            }, 1000, function(){
+                                $('#main-content-header').show().animate({
+                                    opacity: 1.0
+                                }, 1500, function(){
+                                    
+                                    
+                                    $('#header-reveal-container').animate({
+                                        opacity: 0
+                                    }, 1500, function(){
+                                        $('#join-button').animate({
+                                            opacity: 1.0
+                                        }, 500);
+                                        $(this).hide();
+                                    });
+                                });
+                            });
+                        }); 
+                    });
+                    
+                    $('#work-block-label').animate({
+                        opacity: 1.0 
+                    }, 1000, function(){
+                        $('#play-block-label').animate({
+                            opacity: 1.0 
+                        }, 1000, function(){
+                            $('#explore-block-label').animate({
+                                opacity: 1.0 
+                            }, 1000);
+                        }); 
+                    });
+                });
+            }, 1500);
+            
+            document.getElementById('logo').addEventListener('click', function(){
+                if(sessionManager.onPreOrder==true){
+                    $('#main-content-container').css({
+                        margin: '-12px 0 0 -12px;'
+                    });
+                    sessionManager.onPreOrder=false;
+                }
+                
+                $('.page-content-container').animate({
+                    opacity: 0
+                }, 500, function(){
+                    $(this).hide();
+                });
+                
+                setTimeout(function(){
+                    $('#main-content').show().animate({
+                        opacity: 1.0
+                    }, 500);
+                }, 750);
+                
+                
+                sessionManager.page = 'home';
+            });
+            
+            document.getElementById('products-option').addEventListener('click', function(){
+                sessionManager.onPreOrder=true;
+                
+               /* $('#main-content-container').css({
+                    margin: '-180px 0 0 -300px'
+                });
+                */
+                $('.page-content-container').animate({
+                    opacity: 0
+                }, 500, function(){
+                    $(this).hide();
+                });
+                
+                setTimeout(function(){
+                    $('#order-content').show().animate({
+                        opacity: 1.0
+                    }, 500);
+                }, 750);
+                
+                sessionManager.page = 'preorder';
+            });
+            
+            document.getElementById('caas-option').addEventListener('click', function(){
+                if(sessionManager.onPreOrder==true){
+                    $('#main-content-container').css({
+                        margin: '-180px 0 0 -300px'
+                    });
+                    sessionManager.onPreOrder=false;
+                }
+                
+                $('.page-content-container').animate({
+                    opacity: 0
+                }, 500, function(){
+                    $(this).hide();
+                });
+                
+                setTimeout(function(){
+                    $('#caas-content').show().animate({
+                        opacity: 1.0
+                    }, 1000);
+                }, 750);
+                
+                sessionManager.page = 'caas';
+            });
+            
+            document.getElementById('contact-option').addEventListener('click', function(){
+               if(sessionManager.onPreOrder==true){
+                    $('#main-content-container').css({
+                        margin: '-150px 0 0 -300px'
+                    });
+                    sessionManager.onPreOrder=false;
+                }
+                
+                $('.page-content-container').not('#contact-content').animate({
+                    opacity: 0
+                }, 500, function(){
+                    $(this).hide();
+                });
+                
+                setTimeout(function(){
+                    $('#contact-content').show().animate({
+                        opacity: 1.0
+                    }, 1000);
+                }, 750);
+                
+                sessionManager.page = 'contact';
+            });
+ 
+            $('#more-button').click(function(){
+                $('#main-video-overlay').show().css({
+                    margin: '-150px 0 0 -300px'
+                }).animate({
+                    opacity: 1.0,
+                    width: '600px',
+                    height: '400px'
+                }, 500);
+            });
+            
+            $('#connect-button').click(function(){
+                $('#products-option').click();
+            });
+            
+            $('#main-video-overlay').click(function(){
+                $(this).css({
+                    margin: '-12px 0 0 -12px'
+                }).animate({
+                    opacity: 0,
+                    width: '25px',
+                    height: '25px'
+                }, 500, function(){
+                    $(this).hide();
+                });
+            });            
+        });
+        
+        // region developper
+    </script>
+</head>
+<body>
+    <div id='main-video-overlay' >
+    </div>
+    <div id='main-profile-container'>
+        <div id='logo-container'>
+            <div id='logo'></div>
+            <div id='logo-bg'></div>
+            <div id='content-header'>house of venus</div>
+        </div>
+        <div id='navigation-container'>
+            <div id='products-option' class='navigation-option'>products</div>
+            <div id='caas-option' class='navigation-option'>pARk</div>
+            <div id='contact-option' class='navigation-option'>roster</div>
+        </div>
+        <div id='main-content-container'>
+            <div id='main-content' class='page-content-container'>
+                <div id='page-section-0' class='page-section'>
+                    <p id='main-content-header'>eV<span id='header-reveal-container'>olve</span></p>
+                    <br/>
+                    <div id='center-panel-container'>
+                        <div id='work-block-container' class='block-container'></div>
+                        <div id='play-block-container' class='block-container'></div>
+                        <div id='explore-block-container' class='block-container'></div>
+                    </div>
+                    <div id='block-container-label-row'>
+                        <span id='work-block-label' class='block-container-label'>work.</span>
+                        <span id='play-block-label' class='block-container-label'>play.</span>
+                        <span id='explore-block-label' class='block-container-label'>explore.</span>
+                    </div>
+                    <div id='join-button'>▶</div>
+                </div>
+            </div>
+            <div id='order-content' class='page-content-container'>
+                <div id='cARd-block-container' class='order-block-container'>
+                    <h3 class='order-block-header'>cARd</h3>
+                    <div id='cARd-block-photo' class='block-photo'>
+                        <h3 class='block-photo-title'>creative Augmented Reality desktop</h3>
+                        <h5></h5>
+                    </div>
+                </div>
+                <div id='eV-block-container' class='order-block-container'>
+                    <h3 class='order-block-header'>eV</h3>
+                    <div id='eV-block-photo' class='block-photo'>
+                        <h3 class='block-photo-title'>Eulalie's Voyager</h3>
+                    </div>
+                </div>
+            </div>
+            <div id='caas-content' class='page-content-container'>
+                <!--<h3>pARk</h3>
+                <h3>public Augmented Reality kinectome</h3>-->
+                <p style='font-size: 90%;'>Our current internet paradigm is fundamentally based on <span style='font-size: 120%; color: red; cursor: pointer;'>compromise</span>: we access free software and services in exchange for being sold as a product to the highest bidding advertiser. Is that really the best we can do?</p>
+                <br/>
+                <p style='font-size: 90%;'>The House of Venus <span style='font-size: 120%; color: springgreen; cursor: pointer;'>public Augmented Reality kinectome</span>, or pARk, is a standard for an immersive internet managed by its users. It combines mesh networking, IoT, and augmented reality to preserve personal freedoms online and unleash the true potential of widespread digital communication.</p>
+                <br/>
+                <p style='font-size: 90%;'> In the pARk, your hand is the mouse and the world is your desktop. Time for us to <span style='font-size: 120%; color: deepskyblue; cursor: pointer;'>eVolve</span>.
+                </p>
+                
+                <div id='content-box-container'>
+                    <div id='content-box-1' class='content-box-row'>
+                        <p>connect via the creative Augmented Reality desktop (cARd), a secure home for all your immersive networking needs and creative projects</p>
+                        <img src='../media/img/cARd.svg' height='50' width='50' />
+                    </div>
+                    <div id='content-box-2' class='content-box-row'>
+                        <p>Augmented Reality kinectors (ARks) form the backbone of the pARk by hosting and distributing online content in both flat and immersive formats</p>
+                        <img src='../media/img/ARk.png' height='50' width='50' />
+                    </div>
+                    <div id='content-box-3' class='content-box-row'>
+                        <p>ARks can be embedded in other devices, like eV, to expand coverage, bringing the immersive web potentially everywhere</p>
+                        <img src='../media/img/drone-512.png' height='50' width='50' />
+                    </div>
+                     
+                </div>
+            </div>
+            <div id='contact-content' class='page-content-container'>
+                <h3 id='roster-list-header' class='contact-item-header'>team</h3>
+                <div class='roster-container-class'>
+                    <div id='ceo-profile' class='profile-container'>
+                        <div id='ceo-profile-image' class='profile-image'></div>
+                        <div id='ceo-profile-name' class='profile-name'>Patrice-Morgan Ongoly</div>
+                        <div id='ceo-description' class='profile-description'>Co-Founder, CEO/CTO </div>
+                    </div>
+                    <div id='coo-profile' class='profile-container'>
+                        <div id='sponsor-profile-image' class='profile-image'></div>
+                        <!--<div id='chief-evangelist-profile-image' class='profile-image'></div>-->
+                        <div id='chief-evangelist-profile-name' class='profile-name'>Vaibhav Ponnuri</div>
+                        <div id='chief-evangelist-description' class='profile-description'>Co-Founder, Chief Evangelist</div>
+                    </div>
+                    <!--<div id='sponsor-profile' class='profile-container'>
+                        <div id='sponsor-profile-image' class='profile-image'></div>
+                        <div id='sponsor-profile-name' class='profile-name'>House of Venus, Benefit Corporation</div>
+                        <div id='sponsor-description' class='profile-description'>Sponsor (pARk)</div>
+                    </div>-->
+                </div>
+                <h3 id='question-item-header' class='contact-item-header'>questions?</h3>
+                <p><a style='text-decoration: none; color: aquamarine;' href='mailto:mavricomfinancial@gmail.com'>mavricomfinancial@gmail.com</a></p>
+            </div>
+        </div>
+        <div id='footer'>House of Venus, Benefit Corporation | 2018</div>
+    </div>
+</body>
+</html>

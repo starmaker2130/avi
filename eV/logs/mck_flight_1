@@ -1,0 +1,1737 @@
+Last login: Wed Nov 14 13:47:29 on ttys000
+cd Patrice-Morgans-MacBook-Pro:lib pongoly$ cd ../../../
+Patrice-Morgans-MacBook-Pro:house pongoly$ ls
+app.js		eV		media		views
+css		js		node_modules
+Patrice-Morgans-MacBook-Pro:house pongoly$ cd eV/tests/
+Patrice-Morgans-MacBook-Pro:tests pongoly$ LS
+connect.js	dpad.js		takeoff.js	video.h264	video.js
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node video.js
+/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:302
+        commandClass = networkFrame.data.readUInt8(1),
+                     ^
+
+ReferenceError: commandClass is not defined
+    at module.exports.Bebop._packetReceiver (/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:302:22)
+    at emitTwo (events.js:106:13)
+    at Socket.emit (events.js:194:7)
+    at UDP.onMessage [as onmessage] (dgram.js:544:8)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ 
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node video.js
+ready...
+/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:301
+    var commandProject = networkFrame.data.readUInt8(0),
+                                          ^
+
+TypeError: Cannot read property 'readUInt8' of undefined
+    at module.exports.Bebop._packetReceiver (/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:301:43)
+    at emitTwo (events.js:106:13)
+    at Socket.emit (events.js:194:7)
+    at UDP.onMessage [as onmessage] (dgram.js:544:8)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node connect.js 
+connected to eV!
+battery: 99
+/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:301
+    var commandProject = networkFrame.data.readUInt8(0),
+                                          ^
+
+TypeError: Cannot read property 'readUInt8' of undefined
+    at module.exports.Bebop._packetReceiver (/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:301:43)
+    at emitTwo (events.js:106:13)
+    at Socket.emit (events.js:194:7)
+    at UDP.onMessage [as onmessage] (dgram.js:544:8)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node connect.js 
+connected to eV!
+{ type: 4,
+  id: 126,
+  seq: 1,
+  size: 19,
+  data: <Buffer 00 12 02 00 34 2e 30 2e 30 2e 34 00> }
+{ type: 2,
+  id: 127,
+  seq: 1,
+  size: 19,
+  data: <Buffer 01 19 02 00 00 00 50 c1 00 00 00 00> }
+{ type: 2,
+  id: 127,
+  seq: 2,
+  size: 13,
+  data: <Buffer 01 19 00 00 f3 00> }
+{ type: 2,
+  id: 127,
+  seq: 3,
+  size: 16,
+  data: <Buffer 90 00 02 00 00 00 00 00 00> }
+{ type: 2,
+  id: 127,
+  seq: 4,
+  size: 23,
+  data: <Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00> }
+{ type: 2,
+  id: 127,
+  seq: 5,
+  size: 19,
+  data: <Buffer 01 04 08 00 00 00 00 00 00 00 00 00> }
+{ type: 2,
+  id: 127,
+  seq: 6,
+  size: 23,
+  data: <Buffer 01 04 06 00 fe 50 9d 39 d5 4f a3 3a 63 7f c4 3c> }
+{ type: 2,
+  id: 127,
+  seq: 7,
+  size: 13,
+  data: <Buffer 01 19 00 00 f3 00> }
+{ type: 4,
+  id: 126,
+  seq: 1,
+  size: 19,
+  data: <Buffer 00 12 02 00 34 2e 30 2e 30 2e 34 00> }
+{ type: 2,
+  id: 127,
+  seq: 8,
+  size: 38,
+  data: <Buffer 01 04 09 00 32 cf b8 5d 55 8a 43 40 16 80 df ac ae 3e 53 c0 00 00 00 a0 99 99 60 40 01 01 02> }
+{ type: 2,
+  id: 127,
+  seq: 9,
+  size: 23,
+  data: <Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 1,
+  size: 19,
+  data: <Buffer 00 12 02 00 34 2e 30 2e 30 2e 34 00> }
+{ type: 2,
+  id: 127,
+  seq: 10,
+  size: 19,
+  data: <Buffer 01 04 08 00 00 00 00 00 00 00 00 00> }
+{ type: 2,
+  id: 127,
+  seq: 11,
+  size: 23,
+  data: <Buffer 01 04 06 00 6c 15 8b 39 e1 cd b2 3a ca 8d c4 3c> }
+{ type: 2,
+  id: 127,
+  seq: 12,
+  size: 13,
+  data: <Buffer 01 19 00 00 f3 00> }
+{ type: 4,
+  id: 126,
+  seq: 1,
+  size: 19,
+  data: <Buffer 00 12 02 00 34 2e 30 2e 30 2e 34 00> }
+{ type: 2,
+  id: 127,
+  seq: 14,
+  size: 19,
+  data: <Buffer 01 04 08 00 00 00 00 00 00 00 00 00> }
+{ type: 2,
+  id: 127,
+  seq: 15,
+  size: 23,
+  data: <Buffer 01 04 06 00 80 18 46 38 1c 99 a5 3a 11 58 c4 3c> }
+{ type: 2,
+  id: 127,
+  seq: 16,
+  size: 13,
+  data: <Buffer 01 19 00 00 f3 00> }
+{ type: 4,
+  id: 126,
+  seq: 2,
+  size: 12,
+  data: <Buffer 00 05 01 00 62> }
+battery: 98
+{ type: 4,
+  id: 126,
+  seq: 3,
+  size: 12,
+  data: <Buffer 00 1e 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 4,
+  size: 20,
+  data: <Buffer 00 05 0b 00 00 00 00 05 00 00 00 01 00> }
+{ type: 4,
+  id: 126,
+  seq: 5,
+  size: 22,
+  data: <Buffer 00 05 0c 00 00 00 00 05 00 00 00 01 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 6,
+  size: 18,
+  data: <Buffer 00 05 0d 00 00 00 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 7,
+  size: 19,
+  data: <Buffer 01 21 00 00 ff ff ff ff ff 00 00 04> }
+{ type: 4,
+  id: 126,
+  seq: 8,
+  size: 17,
+  data: <Buffer 8e 00 03 00 0a 01 00 00 00 03> }
+{ type: 4,
+  id: 126,
+  seq: 9,
+  size: 15,
+  data: <Buffer 01 04 01 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 10,
+  size: 27,
+  data: <Buffer 00 05 0e 00 07 00 00 00 00 00 00 00 07 00 00 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 11,
+  size: 16,
+  data: <Buffer 00 05 08 00 00 00 00 00 01> }
+{ type: 4,
+  id: 126,
+  seq: 12,
+  size: 16,
+  data: <Buffer 00 05 08 00 01 00 00 00 01> }
+{ type: 4,
+  id: 126,
+  seq: 13,
+  size: 16,
+  data: <Buffer 00 05 08 00 02 00 00 00 01> }
+{ type: 4,
+  id: 126,
+  seq: 14,
+  size: 16,
+  data: <Buffer 00 05 08 00 03 00 00 00 01> }
+{ type: 4,
+  id: 126,
+  seq: 15,
+  size: 16,
+  data: <Buffer 00 05 08 00 04 00 00 00 01> }
+{ type: 4,
+  id: 126,
+  seq: 16,
+  size: 16,
+  data: <Buffer 00 05 08 00 05 00 00 00 01> }
+{ type: 4,
+  id: 126,
+  seq: 17,
+  size: 12,
+  data: <Buffer 00 0e 01 00 01> }
+{ type: 4,
+  id: 126,
+  seq: 18,
+  size: 20,
+  data: <Buffer 01 0a 02 00 00 00 00 00 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 19,
+  size: 15,
+  data: <Buffer 01 0a 01 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 20,
+  size: 16,
+  data: <Buffer 00 11 01 00 01 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 21,
+  size: 16,
+  data: <Buffer 00 11 01 00 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 22,
+  size: 16,
+  data: <Buffer 00 11 01 00 02 00 00 00 01> }
+{ type: 2,
+  id: 127,
+  seq: 17,
+  size: 23,
+  data: <Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 23,
+  size: 16,
+  data: <Buffer 00 11 01 00 03 00 00 00 01> }
+{ type: 4,
+  id: 126,
+  seq: 24,
+  size: 12,
+  data: <Buffer 00 11 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 25,
+  size: 73,
+  data: <Buffer 00 0c 00 00 01 00 00 00 2f 64 61 74 61 2f 66 74 70 2f 69 6e 74 65 72 6e 61 6c 5f 30 30 30 2f 66 6c 69 67 68 74 70 6c 61 6e 73 2f 66 6c 69 67 68 74 50 ... > }
+{ type: 4,
+  id: 126,
+  seq: 26,
+  size: 47,
+  data: <Buffer 01 04 0c 00 00 00 00 00 00 40 7f 40 00 00 00 00 00 40 7f 40 00 00 00 00 00 40 7f 40 00 00 00 00 00 00 00 00 01 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 27,
+  size: 31,
+  data: <Buffer 00 0f 00 00 00 00 9c 42 00 00 0c 42 00 00 0c c2 00 00 88 41 00 00 a6 c2> }
+{ type: 4,
+  id: 126,
+  seq: 28,
+  size: 13,
+  data: <Buffer 01 19 01 00 f3 00> }
+{ type: 4,
+  id: 126,
+  seq: 29,
+  size: 19,
+  data: <Buffer 01 19 03 00 00 00 50 c1 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 30,
+  size: 19,
+  data: <Buffer 01 19 04 00 00 00 a0 41 00 00 a0 41> }
+{ type: 4,
+  id: 126,
+  seq: 31,
+  size: 12,
+  data: <Buffer 01 18 02 00 00> }
+{ type: 2,
+  id: 127,
+  seq: 18,
+  size: 19,
+  data: <Buffer 01 04 08 00 00 00 00 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 32,
+  size: 19,
+  data: <Buffer 01 04 03 00 02 00 00 00 05 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 33,
+  size: 35,
+  data: <Buffer 01 18 00 00 32 99 17 4d 54 8a 43 40 4d 84 0d 4f af 3e 53 c0 00 00 00 00 00 00 00 c0> }
+{ type: 4,
+  id: 126,
+  seq: 34,
+  size: 15,
+  data: <Buffer 01 18 04 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 35,
+  size: 16,
+  data: <Buffer 01 1f 01 00 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 36,
+  size: 16,
+  data: <Buffer 01 1f 01 00 01 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 37,
+  size: 16,
+  data: <Buffer 01 1f 01 00 02 00 00 00 01> }
+{ type: 4,
+  id: 126,
+  seq: 38,
+  size: 16,
+  data: <Buffer 01 1f 01 00 03 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 39,
+  size: 15,
+  data: <Buffer 01 1f 02 00 02 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 40,
+  size: 15,
+  data: <Buffer 01 16 00 00 01 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 41,
+  size: 15,
+  data: <Buffer 01 14 07 00 01 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 42,
+  size: 15,
+  data: <Buffer 01 14 08 00 02 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 43,
+  size: 15,
+  data: <Buffer 01 14 09 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 44,
+  size: 19,
+  data: <Buffer 01 08 03 00 00 00 00 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 45,
+  size: 16,
+  data: <Buffer 01 08 01 00 00 00 00 00 ff> }
+{ type: 4,
+  id: 126,
+  seq: 46,
+  size: 19,
+  data: <Buffer 01 08 02 00 00 00 00 00 00 00 00 00> }
+{ type: 2,
+  id: 127,
+  seq: 20,
+  size: 13,
+  data: <Buffer 01 19 00 00 f3 00> }
+{ type: 4,
+  id: 126,
+  seq: 47,
+  size: 15,
+  data: <Buffer 01 16 01 00 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 48,
+  size: 39,
+  data: <Buffer 01 04 0e 00 00 00 00 00 00 40 7f 40 00 00 00 00 00 40 7f 40 00 00 00 00 00 40 7f 40 00 00 00 00> }
+{ type: 4,
+  id: 126,
+  seq: 49,
+  size: 25,
+  data: <Buffer 86 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00> }
+{ type: 4,
+  id: 126,
+  seq: 50,
+  size: 19,
+  data: <Buffer 86 00 04 00 01 00 00 00 3f 00 7f 00> }
+{ type: 4,
+  id: 126,
+  seq: 51,
+  size: 19,
+  data: <Buffer 86 00 04 00 02 00 00 00 00 00 7f 00> }
+{ type: 4,
+  id: 126,
+  seq: 52,
+  size: 19,
+  data: <Buffer 86 00 04 00 03 00 00 00 00 00 7f 00> }
+{ type: 4,
+  id: 126,
+  seq: 53,
+  size: 15,
+  data: <Buffer 01 04 0f 00 03 00 00 00> }
+{ type: 4, id: 126, seq: 54, size: 7 }
+/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:302
+    var commandProject = networkFrame.data.readUInt8(0),
+                                          ^
+
+TypeError: Cannot read property 'readUInt8' of undefined
+    at module.exports.Bebop._packetReceiver (/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:302:43)
+    at emitTwo (events.js:106:13)
+    at Socket.emit (events.js:194:7)
+    at UDP.onMessage [as onmessage] (dgram.js:544:8)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node connect.js 
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node connect.js 
+connected to eV!
+<Buffer 00 12 02 00 34 2e 30 2e 30 2e 34 00>
+126
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+127
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+127
+<Buffer 01 04 06 00 45 9f 1c 3a fa ce 55 3b 39 c1 cd 3c>
+127
+<Buffer 01 19 00 00 f3 00>
+127
+<Buffer 01 19 02 00 00 00 50 c1 00 00 00 00>
+127
+<Buffer 01 19 00 00 f3 00>
+127
+<Buffer 90 00 02 00 00 00 00 00 00>
+127
+<Buffer 00 12 02 00 34 2e 30 2e 30 2e 34 00>
+126
+<Buffer 01 04 09 00 32 5d 4e 1c 53 8a 43 40 c7 ad 2d 3c af 3e 53 c0 00 00 00 40 33 53 60 40 01 01 02>
+127
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+127
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+127
+<Buffer 01 04 06 00 79 04 00 3a b9 30 16 3b 16 ed cd 3c>
+127
+<Buffer 01 19 00 00 f3 00>
+127
+<Buffer 00 12 02 00 34 2e 30 2e 30 2e 34 00>
+126
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+127
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+127
+<Buffer 01 04 06 00 d6 06 0b 3a e9 2e e2 3a 74 f2 cd 3c>
+127
+<Buffer 01 19 00 00 f3 00>
+127
+<Buffer 00 12 02 00 34 2e 30 2e 30 2e 34 00>
+126
+<Buffer 00 05 01 00 62>
+126
+battery: 98
+<Buffer 00 1e 00 00 00>
+126
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+127
+<Buffer 00 05 0b 00 00 00 00 05 00 00 00 01 00>
+126
+<Buffer 00 05 0c 00 00 00 00 05 00 00 00 01 00 00 00>
+126
+<Buffer 00 05 0d 00 00 00 00 00 00 00 00>
+126
+<Buffer 01 21 00 00 ff ff ff ff ff 00 00 04>
+126
+<Buffer 8e 00 03 00 0a 01 00 00 00 03>
+126
+<Buffer 01 04 01 00 00 00 00 00>
+126
+<Buffer 00 05 0e 00 07 00 00 00 00 00 00 00 07 00 00 00 00 00 00 00>
+126
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+127
+<Buffer 00 05 08 00 00 00 00 00 01>
+126
+<Buffer 00 05 08 00 01 00 00 00 01>
+126
+<Buffer 00 05 08 00 02 00 00 00 01>
+126
+<Buffer 00 05 08 00 03 00 00 00 01>
+126
+<Buffer 00 05 08 00 04 00 00 00 01>
+126
+<Buffer 00 05 08 00 05 00 00 00 01>
+126
+<Buffer 00 0e 01 00 01>
+126
+<Buffer 01 0a 02 00 00 00 00 00 00 00 00 00 00>
+126
+<Buffer 01 0a 01 00 00 00 00 00>
+126
+<Buffer 00 11 01 00 01 00 00 00 00>
+126
+<Buffer 00 11 01 00 00 00 00 00 00>
+126
+<Buffer 00 11 01 00 02 00 00 00 01>
+126
+<Buffer 00 11 01 00 03 00 00 00 01>
+126
+<Buffer 00 11 00 00 00>
+126
+<Buffer 00 0c 00 00 01 00 00 00 2f 64 61 74 61 2f 66 74 70 2f 69 6e 74 65 72 6e 61 6c 5f 30 30 30 2f 66 6c 69 67 68 74 70 6c 61 6e 73 2f 66 6c 69 67 68 74 50 ... >
+126
+<Buffer 01 04 0c 00 00 00 00 00 00 40 7f 40 00 00 00 00 00 40 7f 40 00 00 00 00 00 40 7f 40 00 00 00 00 00 00 00 00 01 00 00 00>
+126
+<Buffer 01 19 00 00 f3 00>
+127
+<Buffer 00 0f 00 00 00 00 9c 42 00 00 0c 42 00 00 0c c2 00 00 88 41 00 00 a6 c2>
+126
+<Buffer 01 19 01 00 f3 00>
+126
+<Buffer 01 19 03 00 00 00 50 c1 00 00 00 00>
+126
+<Buffer 01 19 04 00 00 00 a0 41 00 00 a0 41>
+126
+<Buffer 01 18 02 00 00>
+126
+<Buffer 01 04 03 00 02 00 00 00 05 00 00 00>
+126
+<Buffer 01 18 00 00 32 99 17 4d 54 8a 43 40 4d 84 0d 4f af 3e 53 c0 00 00 00 00 00 00 00 c0>
+126
+<Buffer 01 18 04 00 00 00 00 00>
+126
+<Buffer 01 1f 01 00 00 00 00 00 00>
+126
+<Buffer 01 1f 01 00 01 00 00 00 00>
+126
+<Buffer 01 1f 01 00 02 00 00 00 01>
+126
+<Buffer 01 1f 01 00 03 00 00 00 00>
+126
+<Buffer 01 1f 02 00 02 00 00 00>
+126
+<Buffer 01 16 00 00 01 00 00 00>
+126
+<Buffer 01 14 07 00 01 00 00 00>
+126
+<Buffer 01 14 08 00 02 00 00 00>
+126
+<Buffer 01 14 09 00 00 00 00 00>
+126
+<Buffer 01 08 03 00 00 00 00 00 00 00 00 00>
+126
+<Buffer 01 08 01 00 00 00 00 00 ff>
+126
+<Buffer 01 08 02 00 00 00 00 00 00 00 00 00>
+126
+<Buffer 01 16 01 00 00 00 00 00>
+126
+<Buffer 01 04 0e 00 00 00 00 00 00 40 7f 40 00 00 00 00 00 40 7f 40 00 00 00 00 00 40 7f 40 00 00 00 00>
+126
+<Buffer 86 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00>
+126
+<Buffer 86 00 04 00 01 00 00 00 3f 00 7f 00>
+126
+<Buffer 86 00 04 00 02 00 00 00 00 00 7f 00>
+126
+<Buffer 86 00 04 00 03 00 00 00 00 00 7f 00>
+126
+<Buffer 01 04 0f 00 03 00 00 00>
+126
+undefined
+126
+/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:302
+    var commandProject = networkFrame.data.readUInt8(0),
+                                          ^
+
+TypeError: Cannot read property 'readUInt8' of undefined
+    at module.exports.Bebop._packetReceiver (/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:302:43)
+    at emitTwo (events.js:106:13)
+    at Socket.emit (events.js:194:7)
+    at UDP.onMessage [as onmessage] (dgram.js:544:8)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node connect.js 
+connected to eV!
+<Buffer 00 12 02 00 34 2e 30 2e 30 2e 34 00>
+<Buffer 01 19 02 00 00 00 50 c1 00 00 00 00>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 90 00 02 00 00 00 00 00 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 87 48 ee 39 00 d8 67 3a f8 e7 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 12 02 00 34 2e 30 2e 30 2e 34 00>
+<Buffer 01 04 09 00 b2 42 c6 a3 54 8a 43 40 bc 40 22 80 ae 3e 53 c0 00 00 00 60 66 e6 5f 40 01 01 02>
+<Buffer 01 04 04 00 b2 42 c6 a3 54 8a 43 40 bc 40 22 80 ae 3e 53 c0 00 00 00 60 66 e6 5f 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 00 12 02 00 34 2e 30 2e 30 2e 34 00>
+<Buffer 01 04 06 00 55 64 59 b9 ac 0d 2a 3a 30 c9 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 00 12 02 00 34 2e 30 2e 30 2e 34 00>
+<Buffer 01 04 06 00 ae 9e c5 b9 85 33 1b 3a 1b a7 d4 3c>
+<Buffer 00 05 01 00 61>
+battery: 97
+<Buffer 00 1e 00 00 00>
+<Buffer 00 05 0b 00 00 00 00 05 00 00 00 01 00>
+<Buffer 00 05 0c 00 00 00 00 05 00 00 00 01 00 00 00>
+<Buffer 00 05 0d 00 00 00 00 00 00 00 00>
+<Buffer 01 21 00 00 ff ff ff ff ff 00 00 04>
+<Buffer 8e 00 03 00 0a 01 00 00 00 03>
+<Buffer 01 04 01 00 00 00 00 00>
+<Buffer 01 04 00 00>
+<Buffer 00 05 0e 00 07 00 00 00 00 00 00 00 07 00 00 00 00 00 00 00>
+<Buffer 00 05 07 00 dc ff>
+<Buffer 00 05 08 00 00 00 00 00 01>
+<Buffer 00 05 08 00 01 00 00 00 01>
+<Buffer 00 05 08 00 02 00 00 00 01>
+<Buffer 00 05 08 00 03 00 00 00 01>
+<Buffer 00 05 08 00 04 00 00 00 01>
+<Buffer 00 05 08 00 05 00 00 00 01>
+<Buffer 00 0e 01 00 01>
+<Buffer 01 0a 02 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 0a 01 00 00 00 00 00>
+<Buffer 00 11 01 00 01 00 00 00 00>
+<Buffer 00 11 01 00 00 00 00 00 00>
+<Buffer 00 11 01 00 02 00 00 00 01>
+<Buffer 00 11 01 00 03 00 00 00 01>
+<Buffer 00 11 00 00 00>
+<Buffer 00 0c 00 00 01 00 00 00 2f 64 61 74 61 2f 66 74 70 2f 69 6e 74 65 72 6e 61 6c 5f 30 30 30 2f 66 6c 69 67 68 74 70 6c 61 6e 73 2f 66 6c 69 67 68 74 50 ... >
+<Buffer 01 04 0c 00 00 00 00 00 00 40 7f 40 00 00 00 00 00 40 7f 40 00 00 00 00 00 40 7f 40 00 00 00 00 00 00 00 00 01 00 00 00>
+<Buffer 00 0f 00 00 00 00 9c 42 00 00 0c 42 00 00 0c c2 00 00 88 41 00 00 a6 c2>
+<Buffer 01 04 09 00 b2 00 f8 a7 54 8a 43 40 bc 40 22 80 ae 3e 53 c0 00 00 00 60 66 e6 5f 40 01 01 02>
+<Buffer 01 19 01 00 f3 00>
+<Buffer 01 19 03 00 00 00 50 c1 00 00 00 00>
+<Buffer 01 19 04 00 00 00 a0 41 00 00 a0 41>
+<Buffer 01 18 02 00 00>
+<Buffer 01 04 03 00 02 00 00 00 05 00 00 00>
+<Buffer 01 18 00 00 32 99 17 4d 54 8a 43 40 4d 84 0d 4f af 3e 53 c0 00 00 00 00 00 00 00 c0>
+<Buffer 01 18 04 00 00 00 00 00>
+<Buffer 01 1f 01 00 00 00 00 00 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 1f 01 00 01 00 00 00 00>
+<Buffer 01 1f 01 00 02 00 00 00 01>
+<Buffer 01 1f 01 00 03 00 00 00 00>
+<Buffer 01 1f 02 00 02 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 16 00 00 01 00 00 00>
+<Buffer 01 14 07 00 01 00 00 00>
+<Buffer 01 14 08 00 02 00 00 00>
+<Buffer 01 14 09 00 00 00 00 00>
+<Buffer 01 08 03 00 00 00 00 00 00 00 00 00>
+<Buffer 01 08 01 00 00 00 00 00 ff>
+<Buffer 01 08 02 00 00 00 00 00 00 00 00 00>
+<Buffer 01 16 01 00 00 00 00 00>
+<Buffer 01 04 0e 00 00 00 00 00 00 40 7f 40 00 00 00 00 00 40 7f 40 00 00 00 00 00 40 7f 40 00 00 00 00>
+<Buffer 01 04 06 00 21 61 fc b9 bc 2a 0d 3a d2 af d4 3c>
+<Buffer 86 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00>
+<Buffer 86 00 04 00 01 00 00 00 3f 00 7f 00>
+<Buffer 86 00 04 00 02 00 00 00 00 00 7f 00>
+<Buffer 86 00 04 00 03 00 00 00 00 00 7f 00>
+<Buffer 01 04 0f 00 03 00 00 00>
+<Buffer 90 00 01 00 00 00 00 00>
+<Buffer 01 24 00 00 00 00 00 00>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 05 00 00>
+<Buffer 01 04 02 00 00 00 00 00>
+<Buffer 00 0e 00 00 00 00 00 00>
+<Buffer 00 05 02 00 00 69 6e 74 65 72 6e 61 6c 00>
+<Buffer 00 05 03 00 00 aa 1c 00 00 1f 04 00 00 01 00 01>
+<Buffer 01 10 03 00 36 2e 36 2e 52 2e 34 00>
+<Buffer 01 10 02 00 00 00 00 00 00>
+<Buffer 01 10 04 00 05 00 08 00 52 01 00 00>
+<Buffer 01 10 05 00 02 00 00 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 b2 e6 07 ba e3 5e 1e 3a 0e cf d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 72 4e f0 b9 fc 1d d3 39 11 57 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 04 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 20 33 f9 b9 42 d0 d2 39 2d 44 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 9f dd 04 ba 6f f9 cc 39 17 59 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 3e b1 1f ba 31 7b ba 39 f7 1f d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 fa 16 42 ba 3d 2c 13 3a cb cc d3 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 f7 ed 48 ba ef ee cb 39 33 bb d3 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 04 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 b2 37 3d ba fd 69 7e 39 60 f9 d3 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 d6 63 13 ba 08 86 56 39 72 0b d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 97 fa 3b ba 2f cf 72 39 6f 23 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 dd 02 2b ba 96 68 3a 39 e4 a7 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 37 ca 50 ba 31 3f 99 39 d8 cf d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 ba 67 39 ba 4e 81 57 38 a8 8f d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 d0 2e 2a ba e1 df 25 b7 d4 53 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 0c f0 31 ba 1f 34 3e 39 ab 21 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 05 07 00 dd ff>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 9a 14 2f ba 6e 01 8b 39 c8 15 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 6e aa 11 ba c3 23 c0 39 24 a0 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 04 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 ea 60 17 ba 84 9b 71 39 e2 7a d4 3c>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 6f cf 21 ba 4e 39 7a 39 8e 6d d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 43 69 2d ba 6c b9 cb 39 ef b7 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 05 07 00 dc ff>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 27 02 f2 b9 e7 6a 01 3a 6f c3 d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 05 0b 00 00 00 00 05 00 00 00 01 00>
+<Buffer 00 05 0c 00 00 00 00 05 00 00 00 01 00 00 00>
+<Buffer 00 05 02 00 00 69 6e 74 65 72 6e 61 6c 00>
+<Buffer 00 05 03 00 00 aa 1c 00 00 1f 04 00 00 01 00 01>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 c8 97 0f ba 80 8e d1 39 28 dd d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 04 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 b0 63 c6 b9 32 72 ec 39 fb ed d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 a7 d9 ce b9 39 a7 f7 39 6a 6c d4 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 ee ec ee b9 e0 82 9a 39 76 a6 d3 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 23 71 1e ba c4 1d 36 39 24 6c d3 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 05 07 00 dc ff>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 c8 47 dc b9 de 89 02 39 b3 34 d3 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 04 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 d6 21 04 ba 94 56 db b7 76 23 d3 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 3a da e4 b9 d6 5e f1 b8 11 38 d3 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 93 c9 20 ba 1d 9d 8a 38 75 e5 d2 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 3c cf fc b9 ed 90 a6 39 d5 f8 d2 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 05 07 00 dd ff>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 a4 40 2c ba c9 ef e2 39 3d db d2 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 04 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 ff 70 2c ba 87 3e c7 39 df 9b d2 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 b3 92 ce b9 86 31 20 3a f3 7f d2 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 79 e2 f0 b9 be f2 1e 3a 4f 92 d2 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 65 05 2a ba e3 4d c8 39 32 7d d2 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 05 07 00 dd ff>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 53 bc 2b ba e7 b5 84 39 23 2f d2 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 04 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 6c 9d 32 ba 53 34 c7 38 de 82 d2 3c>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 ec a7 46 ba 64 c8 8c 39 95 88 d2 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 0d 79 19 ba 49 55 a0 39 e4 5d d2 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 bf 0b 13 ba 4c bb 0a 3a 1d 25 d2 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 05 07 00 dd ff>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 27 0e 2b ba 85 1a 17 3a 8b 93 d1 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 04 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 e2 c1 07 ba 40 ad ac 39 72 0f d2 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 2c 10 4e ba 7e 3a 75 39 53 b8 d1 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 53 b6 38 ba 77 01 ec 38 e9 e4 d1 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 be 41 29 ba 71 e0 89 38 26 5e d1 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 0b 58 0d ba 17 87 e4 36 bd 48 d1 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 05 07 00 dc ff>
+<Buffer 00 05 0b 00 00 00 00 05 00 00 00 01 00>
+<Buffer 00 05 0c 00 00 00 00 05 00 00 00 01 00 00 00>
+<Buffer 00 05 02 00 00 69 6e 74 65 72 6e 61 6c 00>
+<Buffer 00 05 03 00 00 aa 1c 00 00 1f 04 00 00 01 00 01>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 04 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 09 cf 5a ba ad b4 5f 39 25 d0 d0 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 e2 75 39 ba 1b c6 b2 39 26 5f d0 3c>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 21 95 45 ba 49 48 80 39 45 62 d0 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 b7 6b 40 ba bf a1 aa 39 ac 7b d0 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 84 c9 30 ba db 4b 01 3a 96 a4 d0 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 05 07 00 dc ff>
+<Buffer 01 04 09 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40 01 01 02>
+<Buffer 01 04 04 00 b2 be 29 ac 54 8a 43 40 35 57 bc 7e ae 3e 53 c0 00 00 00 00 00 e0 5f 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 27 af 4c ba 4f c6 e1 39 a0 11 d1 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 71 64 86 ba 8e 86 d6 b7 1e 9a d1 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 c1 b9 8b b9 7b f8 f4 38 14 34 d1 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 87 3a d1 b7 3c 07 80 3a 30 c2 d1 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 7a 97 2e 39 92 26 2c 3a 97 04 d1 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 32 8f e4 df 54 8a 43 40 0b 05 79 63 ae 3e 53 c0 00 00 00 00 00 00 60 40 01 01 02>
+<Buffer 01 04 04 00 32 8f e4 df 54 8a 43 40 0b 05 79 63 ae 3e 53 c0 00 00 00 00 00 00 60 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 85 87 37 b8 38 ff 3f 3a 62 3e d1 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 ba 5b 0a ba 62 6a 77 3a 99 69 d1 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 32 bb 18 dd 54 8a 43 40 fd 25 60 61 ae 3e 53 c0 00 00 00 40 33 03 60 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 27 76 ec b9 ca 40 58 36 51 d3 d1 3c>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 f1 1c 18 3b ae eb 54 3b 2d 22 c9 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 03 d5 6b 3c 58 96 85 3b 9e 53 ac 3c>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 04 00 32 79 4a e1 54 8a 43 40 f0 46 47 5f ae 3e 53 c0 00 00 00 60 66 06 60 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 12 61 21 3d 9d f1 c5 3d e6 01 7d be>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 05 07 00 e0 ff>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 d4 8e 3d 3d 64 ff a5 3d 4a 2a 2f bf>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 32 fd e6 d8 54 8a 43 40 e3 67 2e 5d ae 3e 53 c0 00 00 00 c0 cc 0c 60 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 6e 03 60 bc b0 98 de 3d 16 b6 97 bf>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 86 00 e3 bd ff 71 87 3d 7d 8c bf bf>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 f8 fd e3 bd c8 62 41 3d 38 e6 c0 bf>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 32 3f b5 d4 54 8a 43 40 ef 52 94 5e ae 3e 53 c0 00 00 00 a0 99 09 60 40 01 01 02>
+<Buffer 01 04 04 00 32 3f b5 d4 54 8a 43 40 ef 52 94 5e ae 3e 53 c0 00 00 00 a0 99 09 60 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 a3 56 e6 bd dd 80 74 3d 00 24 a9 bf>
+<Buffer 00 05 07 00 e4 ff>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 d9 da d1 bd 28 35 81 3d d0 73 4e bf>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 32 de 13 eb 54 8a 43 40 ac b8 5d 68 ae 3e 53 c0 00 00 00 c0 cc ec 5f 40 01 01 02>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 6f c6 c4 bd e6 87 37 3d f8 4d ce be>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 6e d5 00 bd 6d 4e d2 bc ff 90 89 be>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 00 05 0b 00 00 00 00 05 00 00 00 01 00>
+<Buffer 00 05 0c 00 00 00 00 05 00 00 00 01 00 00 00>
+<Buffer 00 05 02 00 00 69 6e 74 65 72 6e 61 6c 00>
+<Buffer 00 05 03 00 00 aa 1c 00 00 1f 04 00 00 01 00 01>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 a2 08 37 3d 46 7b ff bc dd 43 75 be>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 09 00 32 02 0f f9 54 8a 43 40 bb 8b 29 6b ae 3e 53 c0 00 00 00 a0 99 d9 5f 40 01 01 02>
+<Buffer 01 04 04 00 32 02 0f f9 54 8a 43 40 bb 8b 29 6b ae 3e 53 c0 00 00 00 a0 99 d9 5f 40>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 06 00 e8 c8 43 3d e0 06 cd bc 36 c1 75 be>
+<Buffer 01 19 00 00 f3 00>
+<Buffer 01 04 05 00 00 00 00 00 00 00 00 00 00 00 00 00>
+<Buffer 01 04 08 00 00 00 00 00 00 00 00 00>
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node connect.js 
+connected to eV!
+battery: 97
+battery: 96
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node video.js 
+ready...
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node video.js 
+ready...
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node dpad.js 
+connected to eV!
+battery: 93
+take off
+battery: 92
+battery: 91
+battery: 90
+drone left at 2
+battery: 89
+stop moving.
+no action; remaining still
+battery: 88
+drone right at 2
+battery: 87
+stop moving.
+no action; remaining still
+drone back at 2
+battery: 86
+stop moving.
+no action; remaining still
+drone left at 2
+battery: 85
+stop moving.
+no action; remaining still
+drone right at 2
+battery: 84
+stop moving.
+no action; remaining still
+battery: 83
+drone left at 2
+stop moving.
+no action; remaining still
+drone forward at 2
+stop moving.
+no action; remaining still
+drone left at 2
+stop moving.
+no action; remaining still
+drone back at 2
+stop moving.
+no action; remaining still
+battery: 82
+land
+no action; remaining still
+/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:797
+        throw err;
+        ^
+
+Error: send ENETUNREACH 192.168.42.1:54321
+    at Object.exports._errnoException (util.js:1050:11)
+    at exports._exceptionWithHostPort (util.js:1073:20)
+    at SendWrap.afterSend [as oncomplete] (dgram.js:401:11)
+
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+module.js:472
+    throw err;
+    ^
+
+Error: Cannot find module '../.'
+    at Function.Module._resolveFilename (module.js:470:15)
+    at Function.Module._load (module.js:418:25)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/pongoly/Documents/houseofvenus/releases/house/eV/tests/mjpegtest.js:3:13)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+module.js:472
+    throw err;
+    ^
+
+Error: Cannot find module '/Users/pongoly/node_modules/opencv/build/opencv/v6.0.0/Release/node-v51-darwin-x64/opencv.node'
+    at Function.Module._resolveFilename (module.js:470:15)
+    at Function.Module._load (module.js:418:25)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/pongoly/node_modules/opencv/lib/bindings.js:4:15)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+/Users/pongoly/Documents/houseofvenus/releases/house/eV/tests/mjpegtest.js:9
+    w = new cv.NamedWindow("Video", 0);
+        ^
+
+TypeError: cv.NamedWindow is not a constructor
+    at Object.<anonymous> (/Users/pongoly/Documents/houseofvenus/releases/house/eV/tests/mjpegtest.js:9:9)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.runMain (module.js:605:10)
+    at run (bootstrap_node.js:427:7)
+    at startup (bootstrap_node.js:151:9)
+    at bootstrap_node.js:542:3
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+/Users/pongoly/Documents/houseofvenus/releases/house/eV/tests/mjpegtest.js:17
+    }
+    ^
+SyntaxError: missing ) after argument list
+    at createScript (vm.js:53:10)
+    at Object.runInThisContext (vm.js:95:10)
+    at Module._compile (module.js:543:28)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.runMain (module.js:605:10)
+    at run (bootstrap_node.js:427:7)
+    at startup (bootstrap_node.js:151:9)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+Stream {
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  writable: true,
+  readable: true,
+  paused: false,
+  autoDestroy: true,
+  write: [Function],
+  push: [Function],
+  queue: [Function],
+  end: [Function],
+  destroy: [Function],
+  pause: [Function],
+  resume: [Function] }
+/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:797
+        throw err;
+        ^
+
+Error: send EADDRNOTAVAIL 192.168.42.1:54321
+    at Object.exports._errnoException (util.js:1050:11)
+    at exports._exceptionWithHostPort (util.js:1073:20)
+    at SendWrap.afterSend [as oncomplete] (dgram.js:401:11)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+/Users/pongoly/Documents/houseofvenus/releases/house/eV/tests/mjpegtest.js:19
+mjpg.on("data", function(data) {
+    ^
+
+TypeError: Cannot read property 'on' of null
+    at Object.<anonymous> (/Users/pongoly/Documents/houseofvenus/releases/house/eV/tests/mjpegtest.js:19:5)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.runMain (module.js:605:10)
+    at run (bootstrap_node.js:427:7)
+    at startup (bootstrap_node.js:151:9)
+    at bootstrap_node.js:542:3
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+.0.
+.0.
+.0.
+.0.
+.0.
+.0.
+.0.
+.0.
+.0.
+.0.
+.0.
+.0.
+.0.
+.0.
+.0.
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+null
+null
+null
+null
+null
+null
+null
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+null
+null
+null
+null
+null
+null
+null
+null
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+Stream {
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  writable: true,
+  readable: true,
+  paused: false,
+  autoDestroy: true,
+  write: [Function],
+  push: [Function],
+  queue: [Function],
+  end: [Function],
+  destroy: [Function],
+  pause: [Function],
+  resume: [Function] }
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+Stream {
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  writable: true,
+  readable: true,
+  paused: false,
+  autoDestroy: true,
+  write: [Function],
+  push: [Function],
+  queue: [Function],
+  end: [Function],
+  destroy: [Function],
+  pause: [Function],
+  resume: [Function] }
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+[Function]
+null
+null
+null
+null
+null
+null
+null
+null
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node mjpegtest.js 
+connected
+Stream {
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  writable: true,
+  readable: true,
+  paused: false,
+  autoDestroy: true,
+  write: [Function],
+  push: [Function],
+  queue: [Function],
+  end: [Function],
+  destroy: [Function],
+  pause: [Function],
+  resume: [Function] }
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ npm install fluent-ffmpeg
+/Users/pongoly/Documents/houseofvenus/releases/house
+└─┬ node-bebop@0.6.0
+  └── fluent-ffmpeg@2.1.2 
+
+npm WARN enoent ENOENT: no such file or directory, open '/Users/pongoly/Documents/houseofvenus/releases/house/package.json'
+npm WARN house No description
+npm WARN house No repository field.
+npm WARN house No README data
+npm WARN house No license field.
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node video.js
+ready...
+events.js:163
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: ffmpeg exited with code 1: Output #0, mp4, to 'video.mp4':
+Output file #0 does not contain any stream
+
+    at ChildProcess.<anonymous> (/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/fluent-ffmpeg/lib/processor.js:182:22)
+    at emitTwo (events.js:106:13)
+    at ChildProcess.emit (events.js:194:7)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:215:12)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node video.js
+ready...
+events.js:163
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: ffmpeg exited with code 1: Output #0, mp4, to 'video.mp4':
+Output file #0 does not contain any stream
+
+    at ChildProcess.<anonymous> (/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/fluent-ffmpeg/lib/processor.js:182:22)
+    at emitTwo (events.js:106:13)
+    at ChildProcess.emit (events.js:194:7)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:215:12)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node video.js
+ready...
+events.js:163
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: ffmpeg exited with code 1: Output #0, mp4, to './video.mp4':
+Output file #0 does not contain any stream
+
+    at ChildProcess.<anonymous> (/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/fluent-ffmpeg/lib/processor.js:182:22)
+    at emitTwo (events.js:106:13)
+    at ChildProcess.emit (events.js:194:7)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:215:12)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node video.js
+ready...
+events.js:163
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: ffmpeg exited with code 1: Output #0, mp4, to './video.mp4':
+Output file #0 does not contain any stream
+
+    at ChildProcess.<anonymous> (/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/fluent-ffmpeg/lib/processor.js:182:22)
+    at emitTwo (events.js:106:13)
+    at ChildProcess.emit (events.js:194:7)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:215:12)
+Patrice-Morgans-MacBook-Pro:tests pongoly$ 
+Patrice-Morgans-MacBook-Pro:tests pongoly$ ls
+connect.js	mjpegtest.js	video.h264
+dpad.js		takeoff.js	video.js
+Patrice-Morgans-MacBook-Pro:tests pongoly$ cd ../
+Patrice-Morgans-MacBook-Pro:eV pongoly$ ls
+logs	tests
+Patrice-Morgans-MacBook-Pro:eV pongoly$ cd ../
+Patrice-Morgans-MacBook-Pro:house pongoly$ ls
+app.js		eV		media		views
+css		js		node_modules
+Patrice-Morgans-MacBook-Pro:house pongoly$ node app.js 
+[0] listening on port 8008
+Chrome Dev 70.0.3538.77 on OS X El Capitan 10.11
+This is a desktop computer. 
+ User is most likely streaming firectly from eV quARk.
+remote connected? false
+[]
+client connected.
+Kids.mp4
+socket 51QqnRyE2RiRdpoHAAAA disconnected.
+^C
+Patrice-Morgans-MacBook-Pro:house pongoly$ ls
+app.js		eV		media		views
+css		js		node_modules
+Patrice-Morgans-MacBook-Pro:house pongoly$ cd eV/tests/
+Patrice-Morgans-MacBook-Pro:tests pongoly$ ls
+connect.js	dpad.js		mjpegtest.js	takeoff.js	video.js
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node dpad.js 
+connected to eV!
+battery: 70
+take off
+battery: 69
+battery: 68
+battery: 67
+battery: 66
+battery: 65
+drone back at 2
+battery: 64
+drone left at 2
+battery: 63
+battery: 62
+battery: 61
+stop moving.
+no action; remaining still
+battery: 60
+drone back at 2
+battery: 59
+drone right at 2
+battery: 58
+stop moving.
+no action; remaining still
+battery: 57
+drone right at 2
+stop moving.
+no action; remaining still
+drone right at 2
+drone right at 2
+battery: 56
+stop moving.
+no action; remaining still
+land
+no action; remaining still
+/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:797
+        throw err;
+        ^
+
+Error: send EADDRNOTAVAIL 192.168.42.1:54321
+    at Object.exports._errnoException (util.js:1050:11)
+    at exports._exceptionWithHostPort (util.js:1073:20)
+    at SendWrap.afterSend [as oncomplete] (dgram.js:401:11)
+
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node dpad.js 
+connected to eV!
+battery: 65
+take off
+battery: 64
+battery: 63
+battery: 62
+battery: 61
+battery: 60
+stop moving.
+no action; remaining still
+battery: 59
+battery: 58
+battery: 57
+battery: 56
+drone forward at 2
+battery: 55
+battery: 54
+battery: 53
+stop moving.
+no action; remaining still
+battery: 52
+battery: 51
+battery: 50
+drone clockwise at 2
+drone clockwise at 2
+drone clockwise at 2
+battery: 49
+stop moving.
+no action; remaining still
+battery: 48
+drone left at 2
+battery: 47
+battery: 46
+drone forward at 2
+battery: 45
+battery: 44
+battery: 43
+battery: 42
+drone forward at 2
+battery: 41
+land
+no action; remaining still
+/Users/pongoly/Documents/houseofvenus/releases/house/node_modules/node-bebop/lib/bebop.js:797
+        throw err;
+        ^
+
+Error: send ENETUNREACH 192.168.42.1:54321
+    at Object.exports._errnoException (util.js:1050:11)
+    at exports._exceptionWithHostPort (util.js:1073:20)
+    at SendWrap.afterSend [as oncomplete] (dgram.js:401:11)
+
+Patrice-Morgans-MacBook-Pro:tests pongoly$ ls
+connect.js	dpad.js		mjpegtest.js	takeoff.js	video.js
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node connect.js 
+connected to eV!
+^C
+Patrice-Morgans-MacBook-Pro:tests pongoly$ 
+Patrice-Morgans-MacBook-Pro:tests pongoly$ node dpad.js 
+connected to eV!
+-----------------
+battery: 100
+-----------------
+take off
+drone forward at 2
+-----------------
+battery: 99
+-----------------
+-----------------
+battery: 98
+-----------------
+stop moving.
+no action; remaining still
+drone back at 2
+stop moving.
+no action; remaining still
+land
+-----------------
+battery: 97
+-----------------
+take off
+drone clockwise at 2
+stop moving.
+no action; remaining still
+drone right at 2
+stop moving.
+no action; remaining still
+drone clockwise at 2
+-----------------
+battery: 96
+-----------------
+stop moving.
+no action; remaining still
+drone clockwise at 2
+stop moving.
+no action; remaining still
+drone forward at 2
+stop moving.
+no action; remaining still
+-----------------
+battery: 95
+-----------------
+-----------------
+battery: 95
+-----------------
+drone right at 2
+stop moving.
+no action; remaining still
+-----------------
+battery: 94
+-----------------
+drone forward at 2
+stop moving.
+no action; remaining still
+drone clockwise at 2
+-----------------
+battery: 93
+-----------------
+-----------------
+battery: 93
+-----------------
+stop moving.
+no action; remaining still
+drone back at 2
+-----------------
+battery: 92
+-----------------
+stop moving.
+no action; remaining still
+land
+no action; remaining still
+
