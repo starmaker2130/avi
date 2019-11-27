@@ -27,12 +27,22 @@ process.stdin.on('keypress', function (ch, key) {
         maiden = true;
     }
     ///console.log('got "keypress"', key);
-    if (key && key.ctrl && key.name == 'c') {
+   /* if (key && key.ctrl && key.name == 'c') {
         process.stdin.pause();
     }
+*/
     var name = key.name;
     switch(name){
-        case 'q':
+        case 'p':
+	    console.log('end the dpad key listening process');
+	    drone.stop();
+	    setTimeout(function(){
+		drone.land();
+		console.log('exit flight process.');
+		console.log('landing bird...');
+		process.stdin.pause();
+	    }, 2000);
+	case 'q':
             console.log('drone counter clockwise at 2');
             drone.counterClockwise(10);
             break;
