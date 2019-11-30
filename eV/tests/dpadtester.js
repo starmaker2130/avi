@@ -41,6 +41,9 @@ console.log(`--------------------------------------------------`);
 console.log(`--------------------------------------------------`);
 console.log(`--------------------------------------------------`);
 console.log(`--------------------------------------------------`);
+
+var drone;
+
 /*var drone = bebop.createClient();
 
 drone.connect(function() {
@@ -108,6 +111,17 @@ process.stdin.on('keypress', function (ch, key) {
             if(menuFocus==0){
                 console.log('connecting to old row mary.land');
                 menuFocus = 2;
+                drone = bebop.createClient();
+
+                drone.connect(function() {
+                    console.log('connected to eV!');
+                });
+
+                drone.on('battery', function(data){
+                    console.log('-----------------');
+                    console.log(`battery: ${data}`);
+                    console.log('-----------------');
+                });
                 break;
             }
         case 'i':
@@ -141,10 +155,14 @@ process.stdin.on('keypress', function (ch, key) {
         case 'n':
             if(menuFocus==1||menuFocus==2){
                 if(droneIsFlying&&commandQueueIsEmpty){
-                    console.log(`drone up at ${droneTurningSpeed}`);
+                    console.log(`drone up at ${droneMovingSpeed}`);
                     //drone.counterClockwise(10);
                     commandQueue.push("up");
                     commandQueueIsEmpty = false;
+                    
+                    if(menuFocus==2){
+                        drone.up(droneMovingSpeed);
+                    }
                    /* setTimeout(function(){
                         let lastMove = commandQueue.pop();
                         console.log(`${lastMove} command complete.`);
@@ -165,10 +183,14 @@ process.stdin.on('keypress', function (ch, key) {
         case 'm':
             if(menuFocus==1||menuFocus==2){
                 if(droneIsFlying&&commandQueueIsEmpty){
-                    console.log(`drone down at ${droneTurningSpeed}`);
+                    console.log(`drone down at ${droneMovingSpeed}`);
                     //drone.counterClockwise(10);
                     commandQueue.push("down");
                     commandQueueIsEmpty = false;
+                    
+                    if(menuFocus==2){
+                        drone.down(droneMovingSpeed);
+                    }
                    /* setTimeout(function(){
                         let lastMove = commandQueue.pop();
                         console.log(`${lastMove} command complete.`);
@@ -193,6 +215,10 @@ process.stdin.on('keypress', function (ch, key) {
                     //drone.counterClockwise(10);
                     commandQueue.push("counterclockwise");
                     commandQueueIsEmpty = false;
+                    
+                    if(menuFocus==2){
+                        drone.counterClockwise(droneTurningSpeed);
+                    }
                    /* setTimeout(function(){
                         let lastMove = commandQueue.pop();
                         console.log(`${lastMove} command complete.`);
@@ -217,6 +243,10 @@ process.stdin.on('keypress', function (ch, key) {
                     //drone.clockwise(10);
                     commandQueue.push("clockwise");
                     commandQueueIsEmpty = false;
+                    
+                    if(menuFocus==2){
+                        drone.clockwise(droneTurningSpeed);
+                    }
                     /*setTimeout(function(){
                         let lastMove = commandQueue.pop();
                         console.log(`${lastMove} command complete.`);
@@ -241,6 +271,10 @@ process.stdin.on('keypress', function (ch, key) {
                     //drone.left(5);
                     commandQueue.push("left");
                     commandQueueIsEmpty = false;
+                    
+                    if(menuFocus==2){
+                        drone.left(droneMovingSpeed);
+                    }
                     /*setTimeout(function(){
                         let lastMove = commandQueue.pop();
                         console.log(`${lastMove} command complete.`);
@@ -265,6 +299,10 @@ process.stdin.on('keypress', function (ch, key) {
                     //drone.back(5);
                     commandQueue.push("back");
                     commandQueueIsEmpty = false;
+                    
+                    if(menuFocus==2){
+                        drone.back(droneMovingSpeed);
+                    }
                     /*setTimeout(function(){
                         let lastMove = commandQueue.pop();
                         console.log(`${lastMove} command complete.`);
@@ -289,6 +327,10 @@ process.stdin.on('keypress', function (ch, key) {
                     //drone.front(5);
                     commandQueue.push("front");
                     commandQueueIsEmpty = false;
+                    
+                    if(menuFocus==2){
+                        drone.front(droneMovingSpeed);
+                    }
                     /*setTimeout(function(){
                         let lastMove = commandQueue.pop();
                         console.log(`${lastMove} command complete.`);
@@ -313,6 +355,10 @@ process.stdin.on('keypress', function (ch, key) {
                     //drone.right(5);
                     commandQueue.push("right");
                     commandQueueIsEmpty = false;
+                    
+                    if(menuFocus==2){
+                        drone.right(droneMovingSpeed);
+                    }
                    /* setTimeout(function(){
                         let lastMove = commandQueue.pop();
                         console.log(`${lastMove} command complete.`);
@@ -340,6 +386,10 @@ process.stdin.on('keypress', function (ch, key) {
                 }
                 else {
                     console.log('take off sequence initated. \n commencing flight...');
+                    
+                    if(menuFocus==2){
+                        drone.takeoff();
+                    }
                     //drone.takeoff();
                     commandQueue.push("takeoff");
                     commandQueueIsEmpty = false;
